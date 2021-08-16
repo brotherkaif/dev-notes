@@ -1,5 +1,4 @@
 # Headers
-
 ```markdown
 # h1
 ## h2
@@ -17,7 +16,6 @@ Header 2
 ```
 
 # Emphasis
-
 ```markdown
 *italic*
 _italic_
@@ -33,7 +31,6 @@ __bold__
 ```
 
 # Lists
-
 ```markdown
 * Item 1
 * Item 2
@@ -45,7 +42,6 @@ __bold__
 ```
 
 # Links
-
 ```markdown
 [link](http://google.com)
 ```
@@ -60,7 +56,6 @@ __bold__
 ```
 
 # Images
-
 ```markdown
 ![Image alt text](/path/to/img.jpg)
 ![Image alt text](/path/to/img.jpg "title")
@@ -72,7 +67,6 @@ __bold__
 ```
 
 # Code
-
 ```
     4 space indent
     makes a code block
@@ -92,7 +86,6 @@ codeFences.withLanguage()
 ~~~
 
 # Blockquotes
-
 ```markdown
 > This is
 > a blockquote
@@ -102,7 +95,6 @@ codeFences.withLanguage()
 ```
 
 # Horizontal line
-
 ```markdown
 ----
 ```
@@ -112,7 +104,6 @@ codeFences.withLanguage()
 ```
 
 # Tables
-
 ```markdown
 | Column 1 Heading | Column 2 Heading |
 | ---------------- | ---------------- |
