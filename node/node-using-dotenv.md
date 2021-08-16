@@ -12,6 +12,3 @@ const API_KEY = process.env.API_KEY;
 
 console.log(API_KEY);
 ```
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MDkxNDYyOTFdfQ==
--->
