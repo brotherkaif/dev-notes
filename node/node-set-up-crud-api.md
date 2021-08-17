@@ -2,7 +2,7 @@
 
 ## Setup
 - Install Node.js (LTS should do)
-- Create a project directory, `run npm init`
+- Create a project directory, run `npm init`
 - Fill out details in wizard
 - You should have a `package.json` file created
 - Install **express** (for creating the API) as a dependency with `npm install express`
