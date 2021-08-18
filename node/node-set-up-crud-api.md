@@ -45,3 +45,37 @@ app.listen(port, () => {
   console.log(`API is listening on port: ${port}`);
 });
 ```
+## Creating a Router
+A **Router** allows you to perform middleware and routing functions. For more info, refer to the [Express Router docs page](http://expressjs.com/en/5x/api.html#router).
+
+Create a router instance:
+```javascript
+// you can put this up top before you assign port
+const cakeRouter = express.Router();
+```
+
+## Implementing HTTP GET
+### Specify the route
+Using your **Router** instance, specify a route for the `GET` request:
+```javascript
+// this router can have multiple routes/paths implemented
+cakeRouter.route('/cakes')
+    .get((req, res) => {
+	// moving the response payload out into a separate const is good practice
+	const response = { hello: 'This is my API' };
+
+	res.json(response);
+    });
+```
+Notes:
+- `get()` works in the same way we specified `app.get()` earlier
+- `res.json()` sends a `json` response back instead of 	`res.send()` which was just plain text
+
+### Wire up the router
+After specifying the routes, use the `.use()` method on the `express()` instance created:
+```javascript
+app.use('/api', cakeRouter);
+```
+Notes:
+- The above will generate the endpoint `.../api/cakes`
+- You can use this to create multiple API versions (e.g. by specifying `/api/v1`)
