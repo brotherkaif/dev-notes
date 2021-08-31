@@ -11,13 +11,6 @@ gpg --import KEY_FILE
 ```
 Import/merge keys. This adds the given keys to the keyring. The fast version is currently just a synonym.
 
-# Trust Keys
-```
-gpg --edit-key KEY_ID
-gpg> trust
-```
-Present a menu which enables you to do most of the key management related tasks.  It expects the specification of a key on the command line.
-
 # List Keys
 ```
 gpg --list-keys
@@ -26,12 +19,26 @@ gpg -k
 ```
 List the specified public/private keys.  If no keys are specified, then all keys from the configured public keyrings are listed.
 
+# Trust Keys
+```
+gpg --edit-key KEY_ID
+gpg> trust
+```
+Present a menu which enables you to do most of the key management related tasks.  It expects the specification of a key on the command line.
+
 # Export Keys
 ```
 gpg --export -armor KEY_ID > KEY.pub.asc
 gpg --export-secret-keys -armor KEY_ID > KEY.asc
 ```
 Either export all keys from all keyrings (default keyrings and those registered via option `--keyring`), or if at least one name is given, those of the given name. The exported keys are written to STDOUT or to the file given with option `--output`.  Use together with `--armor` to mail those keys.
+
+# Delete Keys
+```
+gpg --delete-keys KEY_ID
+gpg --delete-secret-keys KEY_ID
+```
+Allows you to delete keys from your system.
 
 # Encrypt
 ```
