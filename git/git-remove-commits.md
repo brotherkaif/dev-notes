@@ -1,4 +1,4 @@
-# Reverting `git` commits
+# GIT: Reverting Commits
 
 ## Revert and keep changes
 Note: this solution works if the commit to be removed is the last committed one.

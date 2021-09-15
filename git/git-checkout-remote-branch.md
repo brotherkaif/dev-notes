@@ -1,4 +1,6 @@
-# With One Remote
+# GIT: Checking Out Remote Branches Locally
+
+## With One Remote
 With Git versions ≥ 1.6.6, with only one remote, you can do:
 ```bash
 git fetch
@@ -15,7 +17,7 @@ Or the shorthand:
 git checkout -t <name of remote>/test
 ```
 
-# With >1 Remotes
+## With >1 Remotes
 Before you can start working locally on a remote branch, you need to fetch it.
 
 To fetch a branch, you simply need to:

@@ -1,4 +1,6 @@
-# Headers
+# MARKDOWN: Cheatsheet
+
+## Headers
 ```markdown
 # h1
 ## h2
@@ -15,7 +17,7 @@ Header 2
 --------
 ```
 
-# Emphasis
+## Emphasis
 ```markdown
 *italic*
 _italic_
@@ -30,7 +32,7 @@ __bold__
 `code`
 ```
 
-# Lists
+## Lists
 ```markdown
 * Item 1
 * Item 2
@@ -41,7 +43,7 @@ __bold__
 - Item 2
 ```
 
-# Links
+## Links
 ```markdown
 [link](http://google.com)
 ```
@@ -55,7 +57,7 @@ __bold__
 <http://google.com>
 ```
 
-# Images
+## Images
 ```markdown
 ![Image alt text](/path/to/img.jpg)
 ![Image alt text](/path/to/img.jpg "title")
@@ -66,7 +68,7 @@ __bold__
 [img]: http://foo.com/img.jpg
 ```
 
-# Code
+## Code
 ```
     4 space indent
     makes a code block
@@ -85,7 +87,7 @@ codeFences.withLanguage()
 ```
 ~~~
 
-# Blockquotes
+## Blockquotes
 ```markdown
 > This is
 > a blockquote
@@ -94,7 +96,7 @@ codeFences.withLanguage()
 > > Blockquote
 ```
 
-# Horizontal line
+## Horizontal line
 ```markdown
 ----
 ```
@@ -103,7 +105,7 @@ codeFences.withLanguage()
 ****
 ```
 
-# Tables
+## Tables
 ```markdown
 | Column 1 Heading | Column 2 Heading |
 | ---------------- | ---------------- |
