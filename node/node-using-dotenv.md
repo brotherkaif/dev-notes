@@ -1,8 +1,8 @@
 # NODE: Using dotenv
 
 ## Method
-- add your variable to `.env` (eg. `API_KEY=1234`)
 - add `dotenv` to `package.json`
+- add your variable to `.env` (eg. `API_KEY=1234`)
 - add `dotenv` into your file and pull out the variable
 
 ## Example
