@@ -45,6 +45,7 @@ app.listen(port, () => {
   console.log(`API is listening on port: ${port}`);
 });
 ```
+
 ## Creating a Router
 A **Router** allows you to perform middleware and routing functions. For more info, refer to the [Express Router docs page](http://expressjs.com/en/5x/api.html#router).
 
