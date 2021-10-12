@@ -6,7 +6,7 @@
 
 ## Add HTML Content
 1. Create HTML file with head, body etc.
-2. Write out your content. Basic markup (don't bother with divs yet). 
+2. Write out your content. Basic markup (don't bother with divs yet).
 3. Download any core images you need, fill out the IMG tags (aim is to have the page looking readable without styling).
 
 ## CSS Styling for Fonts & Colours
