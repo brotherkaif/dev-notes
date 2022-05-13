@@ -1,4 +1,4 @@
-# JS: Lodash Native
+# JAVASCRIPT: Lodash Native
 
 ## Resources
 - [You don't (may not) need Lodash/Underscore](https://you-dont-need.github.io/You-Dont-Need-Lodash-Underscore/#/) 
