@@ -1,7 +1,7 @@
-# JS: Lodash Native
+# JavaScript: Lodash Native
 
 ## Resources
-- [You don't (may not) need Lodash/Underscore](https://you-dont-need.github.io/You-Dont-Need-Lodash-Underscore/#/) 
+- [You don't (may not) need Lodash/Underscore](https://you-dont-need.github.io/You-Dont-Need-Lodash-Underscore/#/)
 
 ## Quick Links
 
@@ -229,7 +229,7 @@ Creates a slice of array with n elements dropped from the beginning.
   // Native
   [1, 2, 3].slice(1);
   // => [2, 3]
-  
+
   [1, 2, 3].slice(2);
   // => [3]
   ```
@@ -398,7 +398,7 @@ Flattens array a single level deep.
   // Native
   const flatten = [1, [2, [3, [4]], 5]].reduce( (a, b) => a.concat(b), [])
   // => [1, 2, [3, [4]], 5]
-  
+
   const flatten = [].concat(...[1, [2, [3, [4]], 5]])
   // => [1, 2, [3, [4]], 5]
 
@@ -428,11 +428,11 @@ Recursively flattens array.
 
   flattenDeep([1, [[2], [3, [4]], 5]])
   // => [1, 2, 3, 4, 5]
-  
+
   // Native(ES2019)
   [1, [2, [3, [4]], 5]].flat(Infinity)
   // => [1, 2, 3, 4, 5]
-  
+
   const flattenDeep = (arr) => arr.flatMap((subArray, index) => Array.isArray(subArray) ? flattenDeep(subArray) : subArray)
 
   flattenDeep([1, [[2], [3, [4]], 5]])
@@ -545,24 +545,24 @@ Returns an array that is the intersection of all the arrays. Each value in the r
 
 ### _.takeRight
 
-Creates a slice of array with n elements taken from the end. 
+Creates a slice of array with n elements taken from the end.
 :heavy_exclamation_mark: Native slice does not behave entirely the same as the `Lodash` method. See example below to understand why.
 
   ```js
   // Underscore/Lodash
   _.takeRight([1, 2, 3]);
   // => [3]
-  
+
   _.takeRight([1, 2, 3], 2);
   // => [2, 3]
-  
+
   _.takeRight([1, 2, 3], 5);
   // => [1, 2, 3]
 
   // Native
   [1, 2, 3].slice(-1);
   // => [3]
-  
+
   [1, 2, 3].slice(-2);
   // => [2, 3]
 
@@ -570,7 +570,7 @@ Creates a slice of array with n elements taken from the end.
   // => [1, 2, 3]
 
   // Difference in compatibility
-  
+
   // Lodash
   _.takeRight([1, 2, 3], 0);
   // => []
@@ -777,11 +777,11 @@ Removes all provided values from the given array using strict equality for compa
   _.pull(array, 2, 3);
   console.log(array)
   // output: [1, 1]
-  
+
   // Native
   var array = [1, 2, 3, 1, 2, 3];
   function pull(arr, ...removeList){
-      var removeSet = new Set(removeList) 
+      var removeSet = new Set(removeList)
       return arr.filter(function(el){
 	  return !removeSet.has(el)
       })
@@ -996,7 +996,7 @@ Creates an object composed of keys generated from the results of running each el
   // output: { a1: { id: 'a1', title: 'abc' }}
 
   // keyBy for array and object
-  const collectionKeyBy = (collection, key) => { 
+  const collectionKeyBy = (collection, key) => {
     const c = collection || {};
     return c.isArray() ? keyBy(c, key) : Object.values(keyBy(c, key));
   }
@@ -1205,7 +1205,7 @@ The opposite of _.filter; this method returns the elements of collection that pr
 
   // Native
   var array = [1, 2, 3, 4, 5];
-  
+
   var reject = function (arr, predicate) {
     var complement = function (f) {
       return function (x) {
@@ -1392,7 +1392,7 @@ Create a new function that calls _func_ with _thisArg_ and _args_.
   ```
 
  **[⬆ back to top](#quick-links)**
- 
+
 ### _.isFunction
 
 Checks if value is classified as a _Function_ object.
@@ -1421,7 +1421,7 @@ isFunction(123);
 ```
 
  **[⬆ back to top](#quick-links)**
- 
+
 ### _.debounce
 
 Create a new function that calls _func_ with _thisArg_ and _args_.
@@ -1468,7 +1468,7 @@ Create a new function that calls _func_ with _args_.
   var result = sayHelloTo('Jose')
   console.log(result)
   // output: 'Hello Jose'
-  
+
   // Native
   const partial = (func, ...boundArgs) => (...remainingArgs) => func(...boundArgs, ...remainingArgs)
   var sayHelloTo = partial(greet, 'Hello');
@@ -1822,7 +1822,7 @@ Checks if `key` is a direct property of `object`. Key may be a path of a value s
   ```js
   // Lodash
   var object = { a: 1, b: 'settings', c: { d: 'test' } };
-    
+
   var hasA = _.has(object, 'a');
   var hasCWhichHasD = _.has(object, 'c.d')
 
@@ -1841,9 +1841,9 @@ Checks if `key` is a direct property of `object`. Key may be a path of a value s
 	: hasOwnProperty.call(obj, key)
     );
   };
-  
+
   var object = { a: 1, b: 'settings' };
-  var result = has(object, 'a'); 
+  var result = has(object, 'a');
   // output: true
   ```
 
@@ -1872,7 +1872,7 @@ Gets the value at path of object.
   var result = object?.a?.[0]?.b?.c ?? 1;
   console.log(result);
   // output: 3
-  
+
   // Native
   const get = (obj, path, defaultValue = undefined) => {
     const travel = regexp =>
@@ -1883,11 +1883,11 @@ Gets the value at path of object.
     const result = travel(/[,[\]]+?/) || travel(/[,[\].]+?/);
     return result === undefined || result === obj ? defaultValue : result;
   };
-  
+
   var object = { a: [{ b: { c: 3 } }] };
-  var result = get(object, 'a[0].b.c', 1); 
+  var result = get(object, 'a[0].b.c', 1);
   // output: 3
-  
+
   ```
 
 **[⬆ back to top](#quick-links)**
@@ -1986,7 +1986,7 @@ Creates an object composed of the object properties predicate returns truthy for
 	  }
       }
       return obj;
-  } 
+  }
   var result = pickBy(object);
   console.log(result)
   // output: {a: 1, c: 3}
@@ -2064,20 +2064,20 @@ Checks if string ends with the given target string.
   // Lodash
   _.endsWith('abc', 'c');
   // => true
- 
+
   _.endsWith('abc', 'b');
   // => false
-  
+
   _.endsWith('abc', 'b', 2);
   // => true
 
   // Native
   'abc'.endsWith('c');
   // => true
- 
+
   'abc'.endsWith('b');
   // => false
-  
+
   'abc'.endsWith('b', 2);
   // => true
   ```
@@ -2092,7 +2092,7 @@ Checks if value is classified as a String primitive or object.
   // Lodash
   _.isString('abc');
   // => true
- 
+
   _.isString(123);
   // => false
 
@@ -2103,10 +2103,10 @@ Checks if value is classified as a String primitive or object.
     }
     return false
   }
- 
+
   isString('abc');
   // => true
- 
+
   isString(123);
   // => false
   ```
@@ -2173,7 +2173,7 @@ returns a new string with some or all matches of a `pattern` replaced by a `repl
   ```
 
 **[⬆ back to top](#quick-links)**
-  
+
 ### _.split
 :heavy_exclamation_mark:`Not in Underscore.js`
 Splits string by separator.
@@ -2299,7 +2299,7 @@ Uppercases the first letter of a given string
   const upperFirst = (string) => {
     return string ? string.charAt(0).toUpperCase() + string.slice(1) : ''
   }
-  
+
   var result = upperFirst('george')
   console.log(result)
   // output: 'George'
@@ -2345,7 +2345,7 @@ Invokes the iteratee n times, returning an array of the results of each invocati
   var result = Array.from({length: 10}, (_,x) => x)
   console.log(result)
   // output: '[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]'
-  
+
   // Native
   var result = [...Array(10).keys()]
   console.log(result)
@@ -2364,7 +2364,7 @@ Clamps number within the inclusive lower and upper bounds.
 // Lodash
 _.clamp(-10, -5, 5);
 // => -5
- 
+
 _.clamp(10, -5, 5);
 // => 5
 
@@ -2377,7 +2377,7 @@ _.clamp(10, 99);
 // Native
 const clamp = (number, boundOne, boundTwo) => {
   if (!boundTwo) {
-    return Math.max(number, boundOne) === boundOne ? number : boundOne; 
+    return Math.max(number, boundOne) === boundOne ? number : boundOne;
   } else if (Math.min(number, boundOne) === number) {
     return boundOne;
   } else if (Math.max(number, boundTwo) === number) {
@@ -2388,7 +2388,7 @@ const clamp = (number, boundOne, boundTwo) => {
 
 clamp(-10, -5, 5);
 // => -5
- 
+
 clamp(10, -5, 5);
 // => 5
 
@@ -2419,7 +2419,7 @@ Checks if n is between start and up to, but not including, end. If end is not sp
       }
       return (num >= Math.min(init, final) && num < Math.max(init, final));
     }
-    
+
     //Native
     const inRange = (num, a, b=0) => (Math.min(a,b) <= num && num < Math.max(a,b));
 
@@ -2438,13 +2438,13 @@ Produces a random number between the inclusive lower and upper bounds. If only o
     // Lodash
     _.random(0, 5);
     // => an integer between 0 and 5
-    
+
     _.random(5);
     // => also an integer between 0 and 5
-    
+
     _.random(5, true);
     // => a floating-point number between 0 and 5
-    
+
     _.random(1.2, 5.2);
     // => a floating-point number between 1.2 and 5.2
 
@@ -2463,25 +2463,25 @@ Produces a random number between the inclusive lower and upper bounds. If only o
 
     random();
     // => a floating-point number between 0 and 1
-    
+
     random(5);
     // => a floating-point number between 0 and 5
-    
+
     random(0, 5);
     // => also a floating-point number between 0 and 5
-    
+
     random(1.2, 5.2);
     // => a floating-point number between 1.2 and 5.2
 
     randomInt();
     // => just 0 or 1
-    
+
     randomInt(5);
     // => an integer between 0 and 5
-    
+
     randomInt(0, 5);
     // => also an integer between 0 and 5
-    
+
     randomInt(1.2, 5.2);
     // => an integer between 2 and 5
 
