@@ -49,7 +49,6 @@
 
 ### Aligning Your Communication Style to Your Personality Traits
 - You need to determine if you are an Extrovert or an Introvert
-- If you're a loud extrovert,
 
 **Extroverts**:
 - It's time to remain silent!
