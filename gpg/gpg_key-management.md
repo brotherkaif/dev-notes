@@ -5,7 +5,7 @@
 gpg --full-generate-key
 gpg --full-gen-key
 ```
-Generate a new key pair with dialogs for all options.  This is an extended version of `--generate-key`. 	 
+Generate a new key pair with dialogs for all options.  This is an extended version of `--generate-key`.
 
 ## Import Keys
 ```
