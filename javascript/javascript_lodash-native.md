@@ -1,4 +1,8 @@
+<<<<<<< HEAD:javascript/javascript-lodash-native.md
+# JAVASCRIPT: Lodash Native
+=======
 # JavaScript: Lodash Native
+>>>>>>> f6f65e0a3a105d25b5141204995e514bcf46584f:javascript/javascript_lodash-native.md
 
 ## Resources
 - [You don't (may not) need Lodash/Underscore](https://you-dont-need.github.io/You-Dont-Need-Lodash-Underscore/#/)

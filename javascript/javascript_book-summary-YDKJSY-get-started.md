@@ -1,4 +1,4 @@
-# JS: Book Summary - You Don't Know JS Yet: Get Started
+# JAVASCRIPT: Book Summary - You Don't Know JS Yet: Get Started
 
 ## Preface
 - 2nd edition of You Don't Know JS (**YDKJS**).
