@@ -22,6 +22,7 @@ This repository contains my personal development notes that I have been adding t
 ### javascript/
 - [javascript_book-summary-YDKJSY-get-started.md](javascript/javascript_book-summary-YDKJSY-get-started.md)
 - [javascript_lodash-native.md](javascript/javascript_lodash-native.md)
+- [javascript_oclif.md](javascript/javascript_oclif.md)
 ### markdown/
 - [markdown_cheatsheet.md](markdown/markdown_cheatsheet.md)
 ### node/
