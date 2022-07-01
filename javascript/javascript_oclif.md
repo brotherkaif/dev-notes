@@ -30,7 +30,7 @@ Each of the files are executed depending on the command issued. In the table bel
 | Command Issued      | File Executed             |
 |-------------------- |-------------------------- |
 | `mycli`             | `commands/index.ts`       |
-| `mycli hello`       | `commands/hello/index.ts  |
+| `mycli hello`       | `commands/hello/index.ts` |
 | `mycli hello:world` | `commands/hello/world.ts` |
 
 **Note:** Obviously, in runtime, the compiled `.js` files in the `dist` folder are executed instead... but you know what I mean.
@@ -51,3 +51,17 @@ test
 ```
 
 As can be seen above, there is a 1:1 mapping between the `test` folder structure and `src`, which should make maintenence a lot easier.
+
+### Using Jest instead of Mocha
+The test suite used by oclif is Mocha. However, you may be working in a project that uses Jest.
+
+To swap the test engine out:
+- remove all `mocha` references from `devDependencies` within the `package.json` file of the project
+- add `jest` as a `devDependencies`
+- reinstall dependencies and try running test suite again
+
+In theory, the `mocha` syntax used in the test scaffolds that the `generate` command creates should all be compatible with `jest`. This includes the oclif library functions `expect` and `test` from `@oclif/test` which greatly simplify writing test files.
+
+However, you might want to use the `jest` versions of `test` and `expect`. You can do this by removing `expect` (to default to the `jest` one) and aliasing `test` to something else (e.g. `import {test as cliTest} from '@oclif/test'`).
+
+**Note:** The `oclif generate command [name]` command will no longer generate the test harness if `mocha` is not found, you will have to write out the tests manually.
