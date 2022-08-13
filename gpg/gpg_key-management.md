@@ -55,7 +55,8 @@ Encrypt data to one or more public keys. This command may be combined with:
 
 ## Decrypt
 ```
-gpg -d INPUT_FILE > OUTPUT_FILE
+// with a file
+gpg --decrypt INPUT_FILE > OUTPUT_FILE
 ```
 Decrypt the file given on the command line (or STDIN if no file is specified) and write it to STDOUT (or the file specified with `--output`). If the decrypted file is signed, the signature is also verified. This command differs from the default operation, as it never writes to the filename which is included in the file and it rejects files that don't begin with an encrypted message.
 
@@ -64,7 +65,7 @@ Decrypt the file given on the command line (or STDIN if no file is specified) an
 // with a file
 gpg --verify INPUT_FILE
 
-// with a here file
+// with a "here" file
 gpg --verify << EOF
 [content]
 EOF
