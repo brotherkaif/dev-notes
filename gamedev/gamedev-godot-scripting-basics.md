@@ -1,4 +1,4 @@
-# GODOT: Getting Started
+# GAMEDEV: Godot Scripting Basics
 
 ## Core Building Blocks
 There are four tools and features that are at the core of every game you will make with the engine.
