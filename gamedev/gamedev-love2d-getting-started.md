@@ -1,5 +1,7 @@
 # GAMEDEV: Love2d Getting Started
 
+## Resources
+- [Learn How to Make Games! DevJeeper](https://youtube.com/playlist?list=PL1A1gsSe2tMzxf54D1OooafEnADpjZlP7) 
 ## Installation/Setup
 1. Install via [love2d.org](https://love2d.org)
 2. Launch to see "no game" screen
