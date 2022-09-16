@@ -2,16 +2,19 @@
 
 ## Setup & Config
 
-### Installing TypeScript 
-```
+### Installing TypeScript
+
+```bash
 npm install -g typescript
 ```
 
 ### Configuring TypeScript
+
 - Create a `tsconfig.json` file in the root of your project
 
 Example config:
-```
+
+```json
 {
   "compilerOptions": {
     "target": "es5",
@@ -21,11 +24,13 @@ Example config:
 ```
 
 ### Compiling TypeScript
+
 - In terminal run `tsc -w` to run the TypeScript compiler and have it watch for changes
 
 ## The Basics
 
 ### Basic JavaScript Types
+
 - String
 - Boolean
 - Number
@@ -36,6 +41,7 @@ Example config:
 - Object (includes Array, Functions, Date, RegEx etc)
 
 ### Declaring types in variables
+
 - Append the variable declaration with `: TYPE`
 - Once specified, it is not possible to reassign with a different type
 
@@ -46,6 +52,7 @@ someVariable = 666; // this will not work!
 ```
 
 ### Declaring types in Functions
+
 - You can specify the types for the arguments of a declared function
 - You can also specify the return types for the function too
 - Once declared, it will also be possible to peek at the specification using the LSP hover function
@@ -66,6 +73,7 @@ function aBetterFunction(anArgument: string): {
 ```
 
 ### Type inference
+
 - You don't need to specify the type for everything
 - In some cases, the type can be _inferred_ from other type declarations
 
@@ -84,6 +92,7 @@ let inferredVariableType = aFunction(anArgument);
 ```
 
 ### Type casting
+
 - If you would rather specify the type of a value instead of a variable (and let Type inference take over) you can use the `as` keyword
 
 ```
@@ -95,6 +104,7 @@ let aCastValue = 425 as number;
 ```
 
 ### Gradual Typing
+
 - If you _really_ want to, you can tell TypeScript to not enforce typing (which you can then specify later) by using the `any` type
 - Be careful using this! Question why you are bypassing the entire point of TypeScript if you are using this
 
@@ -111,10 +121,13 @@ aCastValue = "Same here!";
 ```
 
 ## Defining Custom Types
+
 ### Defining Interfaces
+
 Complex types (e.g. defining the subtypes within an object) can also be defined using Interfaces
 
 Consider the following:
+
 ```
 function getInventoryItem(trackingNumber: string): {
   displayName: string;
@@ -132,6 +145,7 @@ function saveInventoryItem(item) {
 ```
 
 Instead, we could create an Interface for `InventoryItem` which helps better convey the nature of the object being passed around:
+
 ```
 interface InventoryItem {
   displayName: string;
@@ -155,6 +169,7 @@ By doing this, `InventoryItem` can be another type that you can use in the same 
 NOTE: Interface definitions won't appear in the final compiled code, they are used by the LSP to provide diagnostic utilities when working in the editor.
 
 ### Enhancing Interface Definitions
+
 - Interfaces respect 'duck typing', meaning that if you manually construct an entity that follows the same type definition, TypeScript will accept it
 - Interface properties can be made optional by appending a `?`
 - Interface properties can be made read only by prepending `readonly`
@@ -190,8 +205,11 @@ saveInventoryItem({
 ```
 
 ### Restricting Values
+
 #### Enum Restriction
+
 Consider the following:
+
 ```
 interface InventoryItem {
   type: string;
@@ -199,6 +217,7 @@ interface InventoryItem {
 ```
 
 If we wanted to restrict the value of `type`, we could define an enum:
+
 ```
 enum InventoryItemType {
   Computer, // will assign 0
@@ -217,6 +236,7 @@ saveInventoryItem({
 By default, TypeScript will assign the `Computer` and `Furniture` to `0` and `1` respectively. THIS MIGHT NOT BE WHAT WE WANT!
 
 To explicitly have enums map to values, do the following:
+
 ```
 enum InventoryItemType {
   Computer = 'com', // will assign the string 'com'
@@ -233,9 +253,11 @@ saveInventoryItem({
 ```
 
 #### Literal Type Restriction
+
 An alternative (and simpler) pattern for restrictions is to use literal types using the pipe `|` symbol.
 
 Consider the same `enum` example refactored to use literal types:
+
 ```
 interface InventoryItem {
   type: 'com' | 'furn';
@@ -247,18 +269,22 @@ saveInventoryItem({
 ```
 
 ### Multi-Type Variables
+
 You can define multi-type variables using **Union Types**:
+
 ```
 let originalCost: number | string = 420;
 ```
 
 You can also save the combination of types:
+
 ```
 type Cost = number | string;
 let originalCost: Cost = 420;
 ```
 
 HOWEVER, this can cause problems in some situations:
+
 ```
 type Cost = number | string;
 let originalCost: Cost;
