@@ -4,16 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "1778df3a005b05c2",
-        "type": "leaf",
-        "state": {
-          "type": "markdown",
-          "state": {
-            "file": "gamedev/gamedev-love2d-getting-started.md",
-            "mode": "source",
-            "source": false
+        "id": "e9fa204aab903004",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b49d918601145662",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "typescript/typescript-configuring-compiling-and-debugging.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        }
+        ]
       }
     ],
     "direction": "vertical"
@@ -31,7 +37,9 @@
             "type": "leaf",
             "state": {
               "type": "file-explorer",
-              "state": {}
+              "state": {
+                "sortOrder": "alphabetical"
+              }
             }
           },
           {
@@ -77,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "gamedev/gamedev-love2d-getting-started.md",
+                "file": "typescript/typescript-configuring-compiling-and-debugging.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -94,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "gamedev/gamedev-love2d-getting-started.md",
+                "file": "typescript/typescript-configuring-compiling-and-debugging.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -117,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "gamedev/gamedev-love2d-getting-started.md"
+                "file": "typescript/typescript-configuring-compiling-and-debugging.md"
               }
             }
           }
@@ -128,8 +136,12 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "1778df3a005b05c2",
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "b49d918601145662",
   "lastOpenFiles": [
+    "gamedev/gamedev-love2d-getting-started.md",
     "gamedev/gamedev-godot-scripting-basics.md",
     "ffmpeg/ffmpeg-concatenate-videos.md",
     "aws/aws-create-billing-alarm.md",
@@ -137,7 +149,6 @@
     "2022-10-13.md",
     "infosec/infosec-threat-modelling.md",
     "javascript/javascript-lodash-native.md",
-    "gamedev/gamedev-love2d-getting-started.md",
     "git/git-remove-commits.md",
     "2022-10-07.md"
   ]
