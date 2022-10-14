@@ -141,6 +141,8 @@
   },
   "active": "b49d918601145662",
   "lastOpenFiles": [
+    "typescript/typescript-big-picture.md",
+    "typescript/typescript-configuring-compiling-and-debugging.md",
     "gamedev/gamedev-love2d-getting-started.md",
     "gamedev/gamedev-godot-scripting-basics.md",
     "ffmpeg/ffmpeg-concatenate-videos.md",
@@ -148,8 +150,6 @@
     "README.md",
     "2022-10-13.md",
     "infosec/infosec-threat-modelling.md",
-    "javascript/javascript-lodash-native.md",
-    "git/git-remove-commits.md",
-    "2022-10-07.md"
+    "javascript/javascript-lodash-native.md"
   ]
 }

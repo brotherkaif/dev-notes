@@ -114,39 +114,74 @@ Architecting your application so that builds occur automatically lets your devel
 - Run code quality tools (e.g. ESLint)
 - None (ignore changes under certain conditions)
 
+#### Example: Setting-Up Watching in TypeScript
+Add a `watchOptions` property within `tsconfig.json`:
+```JSON
+{
+	// ...
+	"watchOptions": {
+		// You will probably want to exclude some locations from the watchlist
+		"excludeDirectories": ["**/node_modules", "app"]
+		// "**/node_modules": ignore `node_modules` recursively
+		// "app": ignore the build directory
+	}
+	// ...
+}
+```
+
+You can add some scripts to `package.json` to make it easier to run `tsc` in watch mode:
+```JSON
+{
+	// ...
+	"scripts": {
+		// ...
+		"watch": "tsc -w"
+	}
+	// ...
+}
+```
+
+In a new terminal session, you can now run the following:
+```bash
+$ npm run watch
+```
+
+Now, whenever a new change is made to the `*.ts` files being watched, they will be compiled to `*.js` files.
+
 ### Reviewing Configuration Options
 
 [TypeScript Handbook: Configuring Watch](https://www.typescriptlang.org/docs/handbook/configuring-watch.html)
 
 ```JSON
 {
-  // Some typical compiler options
-  "compilerOptions": {
-    "target": "es2020",
-    "moduleResolution": "node"
-    // ...
-  },
-  // Options for file/directory watching
-  "watchOptions": {
-	// Relates to HOW files are watched
-	// Depending on the OS, polling can be inconsistent or slow
-	// You may want to use a different option if that's the case
-    "watchFile": "useFsEvents",
-    "watchDirectory": "useFsEvents",
+	// Some typical compiler options
+	"compilerOptions": {
+		"target": "es2020",
+		"moduleResolution": "node"
+		// ...
+	},
 
-	// Some OS may have a limit to how many files may be watched
-	// This option provides workarounds
-    "fallbackPolling": "dynamicPriority",
+	// Options for file/directory watching
+	"watchOptions": {
+		// Relates to HOW files are watched
+		// Depending on the OS, polling can be inconsistent or slow
+		// You may want to use a different option if that's the case
+		"watchFile": "useFsEvents",
+		"watchDirectory": "useFsEvents",
 
-    // Used if your OS does not support recursive watching
-    // This can be really slow!
-    "synchronousWatchDirectory": true,
+		// Some OS may have a limit to how many files may be watched
+		// This option provides workarounds
+		"fallbackPolling": "dynamicPriority",
 
-    // Finally, two additional settings for reducing the amount of possible
-    // files to track  work from these directories
-    "excludeDirectories": ["**/node_modules", "_build"],
-    "excludeFiles": ["build/fileWhichChangesOften.ts"]
-  }
+		// Used if your OS does not support recursive watching
+		// This can be really slow!
+		"synchronousWatchDirectory": true,
+
+		// Finally, two additional settings for reducing the amount of possible
+		// files to track  work from these directories
+		"excludeDirectories": ["**/node_modules", "_build"],
+		"excludeFiles": ["build/fileWhichChangesOften.ts"]
+	}
 }
 ```
 
@@ -162,7 +197,7 @@ Architecting your application so that builds occur automatically lets your devel
 - [create react app](https://github.com/tsconfig/bases/blob/main/bases/create-react-app.json): Settings needs for `jsx` interoperability
 - [node 16](https://github.com/tsconfig/bases/blob/main/bases/node16.json): Outputs modern server JavaScript `require`, async, etc. 
 
-#### Example
+#### Example: Extending the `node16` Base Configuration
 A base configuration ([node 16](https://github.com/tsconfig/bases/blob/main/bases/node16.json) in this example) can be installed using the following:
 ```bash
 $ npm install --save-dev @tsconfig/node16
@@ -200,3 +235,180 @@ If we wanted to extend this configuration, we can do the following in our `tscon
 - Single file will work when invoked as a Node script
 - Updated production code must be pushed in its entirety
 - Additional tooling (Webpack, Babel) needed
+	- Not ideal (as it introduces more dependencies), but, it is what it is
+
+#### Single-File Compilation for Majority of Tasks
+Compiling a TypeScript application to a single file generally makes it easier to deploy ad both a web and a server-side application.
+
+- Greater support for isomorphic applications (applications that have an element on both the frontend and backend
+	- The same file we make will work in both those environments 
+- Fewer HTTP requests, simpler deployment to web applications
+	- Results in applications running faster
+- Greater consistency across browser / Node versions
+
+#### Example: Using Webpack to Compile TypeScript Applications into a Single File
+
+Take the following structure:
+```bash
+project
+├── node_modules
+│   └── ...
+├── package-lock.json
+├── package.json
+├── src
+│   ├── app
+│   │   └── Main.ts
+│   └── index.ts
+└── tsconfig.json
+```
+
+`Main.ts`:
+```TypeScript
+export class Main {
+	render() : any {
+		console.log("Rendering the application.");
+	}
+}
+```
+
+`index.ts`:
+```TypeScript
+// const Main = require("./app/Main")
+import { Main } from "./app/Main";
+
+new Main().render();
+```
+
+`tsconfig.json`:
+```JSON
+{
+    "exclude": ["node_modules"]
+}
+```
+
+After running a build (using a script like `npm run build`), we get the following:
+```bash
+src
+├── app
+│   ├── Main.js
+│   └── Main.ts
+├── index.js
+└── index.ts
+```
+
+As can be seen, the compiler has created a `*.js` file for each corresponding `*.ts` file. **What we'd prefer in this example is to have all of the `*.ts` files compiled down into a single `*.js` file.**  This can be achieved using [webpack](https://webpack.js.org/) + [babel](https://babeljs.io/).
+
+Installing what we need:
+```bash
+$ npm install --save-dev webpack webpack-cli webpack-dev-server ts-loader
+```
+
+Create a `webpack.config.js` file:
+```JavaScript
+const path = require('path');
+
+module.exports = {
+	// specify the file we're interested in as our main file
+	entry: './src/index.ts',
+
+	// ensures that stuff like `console.log()` are not removed
+	mode: 'development',
+
+	module: {
+		// rules lets us specify what to do with each type of file 
+		rules: [
+			// here, we've specified for `*.ts` or `*.tsx` files
+			// to use the `ts-loader` package
+			// and to ignore the `node_modules` directory
+			{
+				test: /\.tsx?$/, // tsx only necessary for react projects
+				use: 'ts-loader',
+				exclude: /node_modules/,
+			},
+		],
+	},
+	resolve: {
+		// tell webpack to be interested in `*.ts` or `*.js` files
+		extensions: ['.ts', '.js'],
+	},
+	output: {
+		// tell webpack that the final file should be called `bundle.js`...
+		filename: 'bundle.js',
+		// ... and put it in a directory called `bin`
+		path: path.resolve(__dirname, 'bin')
+	},
+	// set up a dev server (which is like an additional watch)
+	// on port 7777
+	// serving the 'public' directory
+	devServer: {
+		static: {
+			directory: path.join(__dirname, 'public'),
+		},
+		compress: true,
+		port: 7777,
+	},
+};
+```
+
+You can add a `webpack` script to `package.json`:
+```JSON
+{
+	// ...
+	"scripts": {
+		// ...
+		"webpack": "webpack"
+	}
+	// ...
+}
+```
+
+Run the `webpack` script:
+```bash
+$ npm run webpack
+```
+
+This creates a *massive* file called `bundle.js` in the `bin` directory:
+```bash
+bin
+└── bundle.js
+```
+
+Let's create a quick `index.html` in the `public` directory:
+```bash
+public
+└── index.html
+```
+
+`index.html`:
+```HTML
+<div>
+	Hello World!
+</div>
+<script src="bundle.js"></script>
+```
+
+Remember, both `bin` and `public` are configured to be served on the dev server. Let's add a script for that in `package.json`:
+```JSON
+{
+	// ...
+	"scripts": {
+		// ...
+		"dev": "webpack serve"
+	}
+	// ...
+}
+```
+
+Run the `dev` script:
+```bash
+$ npm run dev
+```
+
+The webpage should be visible on `http://localhost:7777`
+
+### Summary
+- The TypeScript compiler is configured by using `tsconfig.json`
+- `tsc` is used to compile multi-file builds, while `webpack` or other tools are used to create a single file application or other tools are used to create a single file application
+- Build tools can watch files for changes
+	- Automatic build after each change saves time and concentration
+- Base configurations provide industry-standard combinations of options that can be overridden as needed
