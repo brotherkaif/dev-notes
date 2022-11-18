@@ -18,8 +18,45 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "b57b43c93159472a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "vscode/vscode-workspace-settings.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "6c2d66e895ae3f22",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "functional-programming/functional-programming-book-summary-mostly-adequate-guide.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2ca3e9f3b9406f49",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "javascript/javascript-book-summary-YDKJSY-get-started.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -85,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "typescript/typescript-configuring-compiling-and-debugging.md",
+                "file": "functional-programming/functional-programming-book-summary-mostly-adequate-guide.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "typescript/typescript-configuring-compiling-and-debugging.md",
+                "file": "functional-programming/functional-programming-book-summary-mostly-adequate-guide.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "typescript/typescript-configuring-compiling-and-debugging.md"
+                "file": "functional-programming/functional-programming-book-summary-mostly-adequate-guide.md"
               }
             }
           }
@@ -136,20 +173,17 @@
     "width": 300,
     "collapsed": true
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
-  "active": "b49d918601145662",
+  "active": "6c2d66e895ae3f22",
   "lastOpenFiles": [
-    "typescript/typescript-big-picture.md",
-    "typescript/typescript-configuring-compiling-and-debugging.md",
-    "gamedev/gamedev-love2d-getting-started.md",
-    "gamedev/gamedev-godot-scripting-basics.md",
-    "ffmpeg/ffmpeg-concatenate-videos.md",
-    "aws/aws-create-billing-alarm.md",
+    "javascript/javascript-oclif.md",
+    "javascript/javascript-lodash-native.md",
+    "functional-programming/functional-programming-book-summary-mostly-adequate-guide.md",
+    "javascript/javascript-book-summary-YDKJSY-get-started.md",
     "README.md",
-    "2022-10-13.md",
-    "infosec/infosec-threat-modelling.md",
-    "javascript/javascript-lodash-native.md"
+    "vscode/vscode-workspace-settings.md",
+    "vscode/vscode-recommended-extensions.md",
+    "vim/vim-customisation.md",
+    "typescript/typescript-configuring-compiling-and-debugging.md",
+    "typescript/typescript-big-picture.md"
   ]
 }
