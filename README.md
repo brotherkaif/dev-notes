@@ -1,6 +1,7 @@
 # dev-notes
 ## About
 This repository contains my personal development notes that I have been adding to over the years.
+
 ## Index
 ### aws/
 - [aws-create-billing-alarm.md](./aws/aws-create-billing-alarm.md)
@@ -35,6 +36,7 @@ This repository contains my personal development notes that I have been adding t
 - [soft-skills-success-at-work.md](./soft-skills/soft-skills-success-at-work.md)
 ### typescript/
 - [typescript-big-picture.md](./typescript/typescript-big-picture.md)
+- [typescript-configuring-compiling-and-debugging.md](./typescript/typescript-configuring-compiling-and-debugging.md)
 ### vim/
 - [vim-shortcuts.md](./vim/vim-shortcuts.md)
 - [vim-customisation.md](./vim/vim-customisation.md)

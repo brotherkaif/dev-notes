@@ -4,22 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "e9fa204aab903004",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "6c2d66e895ae3f22",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "functional-programming/functional-programming-book-summary-mostly-adequate-guide.md",
-                "mode": "source",
-                "source": false
-              }
-            }
+        "id": "1778df3a005b05c2",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "gamedev/gamedev-love2d-getting-started.md",
+            "mode": "source",
+            "source": false
           }
-        ]
+        }
       }
     ],
     "direction": "vertical"
@@ -37,9 +31,7 @@
             "type": "leaf",
             "state": {
               "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical"
-              }
+              "state": {}
             }
           },
           {
@@ -85,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "functional-programming/functional-programming-book-summary-mostly-adequate-guide.md",
+                "file": "gamedev/gamedev-love2d-getting-started.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +94,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "functional-programming/functional-programming-book-summary-mostly-adequate-guide.md",
+                "file": "gamedev/gamedev-love2d-getting-started.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +117,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "functional-programming/functional-programming-book-summary-mostly-adequate-guide.md"
+                "file": "gamedev/gamedev-love2d-getting-started.md"
               }
             }
           }
@@ -136,16 +128,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "6c2d66e895ae3f22",
+  "active": "1778df3a005b05c2",
   "lastOpenFiles": [
-    "javascript/javascript-oclif.md",
-    "javascript/javascript-lodash-native.md",
-    "functional-programming/functional-programming-book-summary-mostly-adequate-guide.md",
-    "javascript/javascript-book-summary-YDKJSY-get-started.md",
+    "gamedev/gamedev-godot-scripting-basics.md",
+    "ffmpeg/ffmpeg-concatenate-videos.md",
+    "aws/aws-create-billing-alarm.md",
     "README.md",
-    "vscode/vscode-workspace-settings.md",
-    "vscode/vscode-recommended-extensions.md",
-    "vim/vim-customisation.md",
-    "typescript/typescript-configuring-compiling-and-debugging.md",
-    "typescript/typescript-big-picture.md"
+    "2022-10-13.md",
+    "infosec/infosec-threat-modelling.md",
+    "javascript/javascript-lodash-native.md",
+    "gamedev/gamedev-love2d-getting-started.md",
+    "git/git-remove-commits.md",
+    "2022-10-07.md"
   ]
+}

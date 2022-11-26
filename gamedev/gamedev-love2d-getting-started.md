@@ -2,6 +2,7 @@
 
 ## Resources
 - [Learn How to Make Games! DevJeeper](https://youtube.com/playlist?list=PL1A1gsSe2tMzxf54D1OooafEnADpjZlP7) 
+
 ## Installation/Setup
 1. Install via [love2d.org](https://love2d.org)
 2. Launch to see "no game" screen
@@ -20,9 +21,9 @@ To execute the above example: `love path/to/game-directory`
 Sample of `conf.lua`:
 ```(lua)
 function love.conf(t)
-	t.title = "title"				-- The title of the window the game is in (string)
+	t.title = "title"			-- The title of the window the game is in (string)
 	t.version = "11.3"			-- The LOVE version this game was made for (string)
-	t.console = true				-- Attach a console (boolean, Windows only)
+	t.console = true			-- Attach a console (boolean, Windows only)
 	t.window.width = 1280		-- The window width (number)
 	t.window.height = 720		-- The window height (number)
 end
