@@ -1,0 +1,141 @@
+{
+  "main": {
+    "id": "911a2c743fd3b0bd",
+    "type": "split",
+    "children": [
+      {
+        "id": "67b1ea07359ef118",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "90a2fd4bc373f6ee",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "aws/aws-create-billing-alarm.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "cf1080fded3df77c",
+    "type": "split",
+    "children": [
+      {
+        "id": "a49b286b3a72f400",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "57d93517e50e3e4b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b1fc8bf43e8cf7e4",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1a610a1021b93c6c",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c2f4cae6043fb82d",
+    "type": "split",
+    "children": [
+      {
+        "id": "813c8121ebb5e91b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9cf8a314712b053d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "aws/aws-create-billing-alarm.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7ab62c4ec84274ab",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "aws/aws-create-billing-alarm.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "5075023ff244ba9a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "960395813db2bc1c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "aws/aws-create-billing-alarm.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "90a2fd4bc373f6ee",
+  "lastOpenFiles": []
+}
