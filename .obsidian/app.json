@@ -1,4 +1,14 @@
 {
   "vimMode": true,
+<<<<<<< Updated upstream
   "promptDelete": false
 }
+=======
+  "promptDelete": false,
+  "alwaysUpdateLinks": true,
+  "useMarkdownLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "notes",
+  "attachmentFolderPath": "files"
+}
+>>>>>>> Stashed changes
