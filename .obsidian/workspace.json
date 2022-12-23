@@ -4,101 +4,47 @@
     "type": "split",
     "children": [
       {
-        "id": "371b0be31fcd8e16",
+        "id": "25d1ae876dad13d9",
         "type": "tabs",
         "children": [
           {
-            "id": "d0f3fac94278849a",
+            "id": "1778df3a005b05c2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Zettelkasten Obsidian Setup.md",
+                "file": "notes/zettelkasten-obsidian-setup.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "a19544d0bf94a705",
+            "id": "dfef9efcc75bdd96",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/note-fleeting.md",
+                "file": "_TEMP/git/git-worktrees.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "b46e201588ba1ca3",
+            "id": "c601ef951c9ae054",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/note-fleeting.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "cfb33c024d48b87f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/note-permanent.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "118af6ce7136e589",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/note-literature.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f585fd2ae45bf226",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
+                "file": "notes/How to Update User Config in Git.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 5
-      },
-      {
-        "id": "ec193620e81fe1d9",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "467f1fa34972cfdf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "notes/Zettelkasten Obsidian Setup.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ]
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -128,7 +74,7 @@
               "type": "search",
               "state": {
                 "query": "",
-                "matchingCase": true,
+                "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -164,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "notes/How to Update User Config in Git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -181,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "notes/How to Update User Config in Git.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -204,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "notes/How to Update User Config in Git.md"
               }
             }
           }
@@ -220,21 +166,21 @@
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false
     }
   },
-  "active": "f585fd2ae45bf226",
+  "active": "c601ef951c9ae054",
   "lastOpenFiles": [
-    "notes/Zettelkasten Obsidian Setup.md",
-    "notes/Zettlekasten Obsidian Workflow.md",
-    "templates/note-permanent.md",
-    "templates/note-MOC.md",
-    "templates/note-literature.md",
-    "templates/note-fleeting.md",
-    "README.md",
-    "templates/note-permanent 1 1.md",
-    "soft-skills/soft-skills-success-at-work.md",
-    "notes/made up link.md"
+    "notes/zettelkasten-obsidian-setup.md",
+    "notes/zettlekasten-obsidian-workflow.md",
+    "templates/fleeting-note.md",
+    "notes/How to Update User Config in Git.md",
+    "_TEMP/git/git-worktrees.md",
+    "_TEMP/git/git-checkout-remote-branch.md",
+    "_TEMP/git/git-remove-commits.md",
+    "_TEMP/git/git-setting-up-github-keys.md",
+    "_TEMP/vscode/vscode-workspace-settings.md",
+    "templates/MOC-note.md"
   ]
+}

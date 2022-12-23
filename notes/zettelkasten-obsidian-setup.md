@@ -1,5 +1,5 @@
-**ID:** 1202212221713
-**STATUS:** #fleeting
+**ID:** 120221222171344
+**STATUS:** #fleeting-note
 **TAGS:** #zettlekasten #note-taking #productivity #obsidian
 
 ---
@@ -22,10 +22,10 @@
 		- Enable "Tag Pane" and "Templates"
 	- In settings, enable the core templates plugin and link to `Templates` folder
 - Create templates
-	- [note-fleeting](note-fleeting.md)
-	- [note-permanent](note-permanent.md)
-	- [note-literature](note-literature.md)
-	- [note-MOC](note-MOC.md)
+	- [fleeting-note](fleeting-note.md)
+	- [permanent-note](permanent-note.md)
+	- [literature-note](literature-note.md)
+	- [MOC-note](MOC-note.md)
  
 ---
 ## References

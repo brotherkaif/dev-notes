@@ -1,5 +1,5 @@
 **ID:** 1{{date:YYYYMMDD}}{{time:HHMM}}
-**STATUS:** #permanent
+**STATUS:** #permanent-note
 **TAGS:**
 
 ---

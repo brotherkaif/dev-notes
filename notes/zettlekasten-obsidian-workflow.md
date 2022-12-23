@@ -1,5 +1,5 @@
-**ID:** 1202212221712
-**STATUS:** #permanent
+**ID:** 120221222171233
+**STATUS:** #fleeting-note
 **TAGS:** #zettlekasten #note-taking #productivity #obsidian
 
 --- 
@@ -21,6 +21,7 @@
 	 - Use the template to link together notes of interest around a topic
 	 - You may get questions that could lead to the creation of another "Permanent Note" so you can create one if needs be
 	 - These questions can be used to direct your learning and research of an area
+  
 ---
 ## References
 1. [Zettelkasten Smart Notes: Step by Step with Obsidian](https://youtu.be/ziE6UExsOrs)
