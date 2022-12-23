@@ -4,5 +4,10 @@
   "newFileFolderPath": "notes",
   "vimMode": true,
   "useMarkdownLinks": true,
-  "newLinkFormat": "relative"
+  "newLinkFormat": "relative",
+  "spellcheck": true,
+  "spellcheckLanguages": [
+    "en-US",
+    "en-GB"
+  ]
 }

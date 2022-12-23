@@ -15,7 +15,7 @@
 	- Create the core folders listed above (`files`, `notes`, `references`, `templates`)
 	- In `Settings > Files & Links`
 		- Change default location of new notes to your `notes` folder
-		- Change default location of attatchments to your `files` folder
+		- Change default location of attachments to your `files` folder
 	- In `Settings > Hotkeys`
 		- Create a hotkey for `Templates: Insert Template` (pick what you like)
 	- In `Settings > Core Plugins`
