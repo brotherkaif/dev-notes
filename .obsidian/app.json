@@ -9,5 +9,6 @@
   "spellcheckLanguages": [
     "en-US",
     "en-GB"
-  ]
+  ],
+  "showUnsupportedFiles": false
 }

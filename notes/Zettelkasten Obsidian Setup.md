@@ -7,10 +7,10 @@
 # Zettelkasten Obsidian Setup
 
 - Create Directories
-	- "Files": A container for images and graphics.
-	- "Notes": All note types go here, everything.
-	- "References": Used to reference books, articles, courses (i.e. things that generate a lot of notes). This makes reusing notes a lot easier.
-	- "Templates": A container for template notes.
+	- `Files`: A container for images and graphics.
+	- `Notes`: All note types go here, everything.
+	- `References`: Used to reference books, articles, courses (i.e. things that generate a lot of notes). This makes reusing notes a lot easier.
+	- `Templates`: A container for template notes.
 - Configure App
 	- Create the core folders listed above (`files`, `notes`, `references`, `templates`)
 	- In `Settings > Files & Links`
