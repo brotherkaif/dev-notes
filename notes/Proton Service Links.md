@@ -1,6 +1,6 @@
 **ID:** 120221223231209
 **STATUS:** #fleeting-note
-**TAGS:** #proton #productivity
+**TAGS:** #proton #productivity #privacy
 
 ---
 

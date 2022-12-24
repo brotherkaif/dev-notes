@@ -1,4 +1,10 @@
-# AWS: Creating a Billing Alarm
+**ID:** 1202212240112
+**STATUS:** #permanent-note
+**TAGS:** #aws #cloud-platforms #dev-ops #tutorial
+
+---
+
+# Create a Billing Alarm in AWS
 
 1. Log into the AWS console with the root user account
 2. Navigate to _”[your name]” (top right)_ > _“My Billing Dashboard”_
@@ -23,3 +29,6 @@
     - Give it a name (e.g. `Billing Alarm`)
     - Click _“Next”_
     - Review the details and click _“Create alarm”_
+
+---
+## References
