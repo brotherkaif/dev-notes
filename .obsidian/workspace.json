@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "notes/Inbox Zero Proton Setup.md",
+                "file": "notes/Inbox Zero Workflow.md",
                 "mode": "source",
                 "source": false
               }
@@ -101,7 +101,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Inbox Zero Proton Setup.md",
+                "file": "notes/Inbox Zero Workflow.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/Inbox Zero Proton Setup.md",
+                "file": "notes/Inbox Zero Workflow.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +141,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "notes/Inbox Zero Proton Setup.md"
+                "file": "notes/Inbox Zero Workflow.md"
               }
             }
           },
@@ -171,9 +171,9 @@
   },
   "active": "304020ce52e7330b",
   "lastOpenFiles": [
+    "notes/Inbox Zero Proton Setup.md",
     "notes/Proton Service Links.md",
     "notes/Proton Migration Guides.md",
-    "notes/Inbox Zero Proton Setup.md",
     "notes/Zettlekasten Obsidian Workflow.md",
     "notes/Zettelkasten Obsidian Setup.md",
     "notes/Inbox Zero Workflow.md",
