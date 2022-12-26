@@ -23,12 +23,8 @@
             "id": "36c24bd8059440b3",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "notes/Markdown Frontmatter.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ],
@@ -99,7 +95,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "notes/Markdown Frontmatter.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +111,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "notes/Markdown Frontmatter.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,9 +132,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "notes/Markdown Frontmatter.md"
-              }
+              "state": {}
             }
           },
           {
@@ -169,15 +161,15 @@
   },
   "active": "36c24bd8059440b3",
   "lastOpenFiles": [
+    "notes/Zettlekasten Obsidian Workflow.md",
+    "templates/permanent-note.md",
+    "templates/MOC-note.md",
+    "templates/literature-note.md",
+    "templates/fleeting-note.md",
+    "README.md",
+    "notes/Markdown Frontmatter.md",
     "notes/Create a Billing Alarm in AWS.md",
     "notes/Concatenating Videos with FFMPEG.md",
-    "notes/Proton Service Links.md",
-    "notes/Inbox Zero Workflow.md",
-    "notes/Inbox Zero Proton Setup.md",
-    "notes/Proton Migration Guides.md",
-    "notes/Zettlekasten Obsidian Workflow.md",
-    "notes/Zettelkasten Obsidian Setup.md",
-    "notes/How to Update User Config in Git.md",
-    "notes/Markdown Frontmatter.md"
+    "notes/Proton Service Links.md"
   ]
 }
