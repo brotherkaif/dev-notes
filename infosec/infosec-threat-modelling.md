@@ -5,7 +5,7 @@
 
 ## Steps
 ### 1. Create the design
-Create a simple diagram showing how the nodes and flows connect
+Create a high level diagram showing how the nodes and flows connect
 
 ### 2. Apply Zones Of Trust
 Designate Zones Of Trust for more critical areas:
