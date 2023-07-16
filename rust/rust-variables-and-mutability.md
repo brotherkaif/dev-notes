@@ -26,7 +26,7 @@ fn main() {
 }
 ```
 
-```bash
+```
 $ cargo run
    Compiling variables v0.1.0 (file:///projects/variables)
 error[E0384]: cannot assign twice to immutable variable `x`
@@ -56,7 +56,7 @@ fn main() {
 }
 ```
 
-```bash
+```
 $ cargo run
    Compiling variables v0.1.0 (file:///projects/variables)
     Finished dev [unoptimized + debuginfo] target(s) in 0.30s
@@ -122,7 +122,7 @@ fn main() {
 
 This results in the following output:
 
-```bash
+```
 $ cargo run
    Compiling variables v0.1.0 (file:///projects/variables)
     Finished dev [unoptimized + debuginfo] target(s) in 0.31s
@@ -149,8 +149,7 @@ The following example demonstrates this:
 
 When compiled, the following error occurs:
 
-
-```bash
+```
 $ cargo run
    Compiling variables v0.1.0 (file:///projects/variables)
 error[E0308]: mismatched types
