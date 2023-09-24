@@ -57,6 +57,13 @@ Encrypt data to one or more public keys. This command may be combined with:
 ```
 // with a file
 gpg --decrypt INPUT_FILE > OUTPUT_FILE
+
+// with a heredoc
+gpg --decrypt << EOF
+-----BEGIN PGP MESSAGE-----
+lksjdflskdjflsdkfjsldkfj...
+-----END PGP MESSAGE-----
+EOF
 ```
 Decrypt the file given on the command line (or STDIN if no file is specified) and write it to STDOUT (or the file specified with `--output`). If the decrypted file is signed, the signature is also verified. This command differs from the default operation, as it never writes to the filename which is included in the file and it rejects files that don't begin with an encrypted message.
 
