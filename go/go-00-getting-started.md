@@ -6,7 +6,7 @@
 
 ## Install Go
 
-* Use the Download and Install steps.
+* Use the [Download and Install](https://go.dev/doc/install) steps.
 
 ## Enable Dependency Tracking
 
