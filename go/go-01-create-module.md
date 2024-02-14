@@ -1,4 +1,4 @@
-# GO: Create a Go Module
+# GO: Create Module
 
 ## Prerequisites
 
@@ -46,13 +46,15 @@ The above code does the following:
 - Declare a `message` variable to hold your greeting:
     - **Note:** The `:=` operator is a shortcut for declaring and initialising a variable in one line.
     - The long way would be:
-
-```go
-var message string
-message = fmt.Sprintf("Hi, %v. Welcome!", name)
-```
+        - `var message string`
+        - `message = fmt.Sprintf("Hi, %v. Welcome!", name)`
 - Use the `fmt` package's `Sprintf` function to create a greeting message.
     - The first argument is a format string, and `Sprintf` substitutes the name parameter's value for the `%v` format verb.
     - Inserting the value of the name parameter completes the greeting text.
 - Return the formatted greeting text to the caller.
 
+---
+
+#### References
+
+- [Tutorial: Create a Go module](https://go.dev/doc/tutorial/create-module)

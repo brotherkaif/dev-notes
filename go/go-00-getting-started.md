@@ -69,7 +69,13 @@ go: found rsc.io/quote in rsc.io/quote v1.5.2
 
 The `go mod tidy` command will locate and download the `rsc.io/quote` module. Run the code.
 
-```go
+```bash
 $ go run .
 Don't communicate by sharing memory, share memory by communicating.
 ```
+
+---
+
+#### References
+
+- [Tutorial: Get started with Go](https://go.dev/doc/tutorial/getting-started)
