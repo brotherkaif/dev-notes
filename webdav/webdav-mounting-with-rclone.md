@@ -78,7 +78,7 @@ Description=RClone NAME Mount
 
 [Service]
 Type=simple
-ExecStart=/path/to/rclone mount NAME:/ /home/yourusername/path/to/mountpoint --vfs-cache-mode full
+ExecStart=/path/to/rclone mount NAME:/ /home/yourusername/your/mount/point --vfs-cache-mode full
 ExecStop=/bin/fusermount -uz /home/yourusername/path/to/mountpoint
 Restart=on-abort
 User=yourusername
