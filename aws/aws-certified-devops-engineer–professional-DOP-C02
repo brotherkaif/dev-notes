@@ -1,0 +1,29 @@
+# AWS: Certified DevOps Engineer – Professional (DOP-C02)
+
+## Table of Contents
+
+1. [Introduction](#introduction)
+   1. [Exam Overview](#exam-overview)
+   2. [Content Outline](#content-outline)
+2. [SDLC Automation](#sdlc-automation)
+
+## Introduction
+
+### Exam Overview
+
+**Level:** Professional
+**Length:** 180 minutes to complete the exam
+**Cost:** 300 USD
+**Format:** 75 questions, either multiple choice or multiple response
+**Delivery method:** Testing center or online proctored exam
+
+### Content Outline
+
+- **Domain 1:** SDLC Automation _(22% of scored content)_
+- **Domain 2:** Configuration Management and IaC _(17% of scored content)_
+- **Domain 3:** Resilient Cloud Solutions _(15% of scored content)_
+- **Domain 4:** Monitoring and Logging _(15% of scored content)_
+- **Domain 5:** Incident and Event Response _(14% of scored content)_
+- **Domain 6:** Security and Compliance _(17% of scored content)_
+
+## SDLC Automation
