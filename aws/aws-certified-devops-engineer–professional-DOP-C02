@@ -6,6 +6,7 @@
    1. [Exam Overview](#exam-overview)
    2. [Content Outline](#content-outline)
 2. [SDLC Automation](#sdlc-automation)
+   1. [CI-CD Concepts](#ci-cd-concepts)
 
 ## Introduction
 
@@ -27,3 +28,39 @@
 - **Domain 6:** Security and Compliance _(17% of scored content)_
 
 ## SDLC Automation
+
+### CI-CD Concepts
+
+**What problems are we trying to solve?:**
+These types of projects are slow, not iterative and have long release cycles.
+
+**How do we merge the goals of Dev and Ops?:**
+The traditional goals of software development and IT operations do not really align.
+
+- **Dev:** _How many changes, features and defects can we push into production and how quickly can we do it?_
+- **Ops:** _We want stable and available systems!_
+
+**How can we solve these problems?:**
+DevOps. _Shorten dev lifecycle._ Deliver features, fixes and updates frequently.
+
+**How does DevOps look in action?:**
+
+```
+TODO: Diagram here
+```
+
+**Plan > Code > Build > Test > Release > Deploy > Operate > Monitor**... _repeat!_
+
+**What is CI/CD?:**
+
+- Continuous Integration (CI)
+- Continuous Delivery (CD)
+
+**Continuous Delivery or Continuous Deployment? Are they the same thing?:**
+
+```
+TODO: Diagram here
+```
+
+**Continuous Deployment:** An update is automated the whole way out to production _without the safeguards of continuous devivery_.
+**Continuous Delivery:** Focuses on safely getting changes out to production. _Key point: there is a stop for approval before going to production_.
