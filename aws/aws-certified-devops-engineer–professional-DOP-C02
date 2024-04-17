@@ -46,10 +46,20 @@ DevOps. _Shorten dev lifecycle._ Deliver features, fixes and updates frequently.
 **How does DevOps look in action?:**
 
 ```
-TODO: Diagram here
+MONITOR --------> PLAN --------> CODE 
+                                      
+  ^                                |  
+  |                                |  
+  |                                v  
+                                      
+OPERATE                          BUILD
+                                      
+  ^                                |  
+  |                                |  
+  |                                v  
+                                      
+DEPLOY <------- RELEASE <------- TEST 
 ```
-
-**Plan > Code > Build > Test > Release > Deploy > Operate > Monitor**... _repeat!_
 
 **What is CI/CD?:**
 
@@ -59,7 +69,25 @@ TODO: Diagram here
 **Continuous Delivery or Continuous Deployment? Are they the same thing?:**
 
 ```
-TODO: Diagram here
++----------+      +----------+      +----------+      +----------+      +----------+
+|          |      |          |      |          |      |          |      |          |
+|          |      |          |      |          |      |          |      |          |
+|  SOURCE  | ---> |   TEST   | ---> |  BUILD   | ---> |    QA    | ---> | RELEASE  |
+|   CODE   |      |          |      |          |      |          |      |          |
+|          |      |          |      |          |      |          |      |          |
+|          |      |          |      |          |      |          |      |          |
++----------+      +----------+      +----------+      +----------+      +----------+
+                                                                                    
+           CONTINUOUS INTEGRATION                                                   
+----------------------------------------------->                                    
+                                                                                    
+                                      CONTINUOUS DELIVERY    +----+      DEPLOY     
+                                    -----------------------> |STOP| --------------->
+                                                             +----+                 
+                                                                                    
+                                                                                    
+                                                  CONTINUOUS DEPLOYMENT             
+                                    ----------------------------------------------->
 ```
 
 **Continuous Deployment:** An update is automated the whole way out to production _without the safeguards of continuous devivery_.
