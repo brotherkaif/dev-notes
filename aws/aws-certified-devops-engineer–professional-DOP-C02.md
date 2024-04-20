@@ -92,3 +92,28 @@ DEPLOY <------- RELEASE <------- TEST
 
 **Continuous Deployment:** An update is automated the whole way out to production _without the safeguards of continuous devivery_.
 **Continuous Delivery:** Focuses on safely getting changes out to production. _Key point: there is a stop for approval before going to production_.
+
+### CodeCommit Overview
+
+#### Key Points
+
+**What is CodeCommit?:**
+
+It is a _managed service_ that hosts private Git repositories.
+
+**Why not just use Git?:**
+
+Well, you can. But the key term is _managed service_.
+
+#### Benefits
+
+* Highly available, scalable and fault tolerant
+* No size limit
+* Integrates with other AWS services (CodeBuild, CodePipeline, CodeDeploy, Lambda, SNS)
+* Works with existing Git-based tools
+
+#### Exam Tips
+
+* CodeCommit has many benefits but _is not the only repository_ you can use in an AWS deployment pipeline.
+* When in CodeCommit (or CodeBuild and CodeDeploy) in the AWS Management Console, _study the dropdowns_.
+* Other repositories that can be used in AWS deployments include _S3_, _GitHub_, _Bitbucket_ and _GitHub Enterprise_.
