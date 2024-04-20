@@ -140,3 +140,28 @@ type error interface {
 ### Finding Documentation for Built-in Types
 
 - [Standard Library](https://pkg.go.dev/std): Documentation on all of the packages available in the Go Standard Library
+- [builtin Documentation](https://pkg.go.dev/builtin): Documentation only package (as builtins do not need to be imported like other packages)
+
+### Declaring Variables
+
+There are 3 different ways to declare variables in Go:
+
+```go
+var myName string                   // declare variable
+var myName string = "Samus Aran"    // declare and initialize
+
+var myName = "Samus Aran"           // initialise with inferred type (rarely used, see below)
+myName := "Mike"                    // short declaration syntax (more commonly used)
+```
+
+### Type Conversions
+
+Go has a founding priciple of _being clear over being clever_.
+
+```go
+var i int = 32
+var f float32
+
+f = i           // error! - Go doesn't support implicit conversions
+f = float32(i)  // type conversions allow explicit conversion
+```
