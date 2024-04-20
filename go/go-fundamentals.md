@@ -136,3 +136,7 @@ type error interface {
     Error() string
 }
 ```
+
+### Finding Documentation for Built-in Types
+
+- [Standard Library](https://pkg.go.dev/std): Documentation on all of the packages available in the Go Standard Library
