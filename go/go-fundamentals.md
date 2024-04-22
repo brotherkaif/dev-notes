@@ -165,3 +165,80 @@ var f float32
 f = i           // error! - Go doesn't support implicit conversions
 f = float32(i)  // type conversions allow explicit conversion
 ```
+### Arithmetic
+
+```go
+a,b := 10, 5        // Go allows multiple variables to be initialized at once!
+
+c := a + b          // 15 - addition
+c := a - b          // 5 - subtraction
+c := a * b          // 50 - multiplication
+c := a / b          // 2 - division
+c := a / 3          // 3 - integer division used for integers
+c := a % 3          // 1 - modulus (remainder of integer division)
+d := 7.0 / 2.0      // 3.5 - decimal results given for floating point numbers
+```
+
+### Comparisons
+
+```go
+a,b := 10, 5
+
+c := a == b         // false - equality
+c := a != b         // true - inequality
+c := a < b          // false - less than
+c := a <= b         // false - less than or equal to
+c := a > b          // true - more than
+c := a >= b         // true - more than or equal to
+```
+
+### Constants
+
+```go
+const a = 42                        // constant (implicitly typed)
+const b string = "hello, world"     // constant (explicitly typed)
+const c = a                         // one constant can be assigned to another
+
+const (                             // group of constants
+    d = true
+    c = 3.14
+)
+
+const (
+    a = "foo"
+    b                               // "foo" - unassigned constants receive previous value
+)
+
+const c = 2 * 5                     // constant expression
+const d = "hello, " + "world"       // must be calculable at compile time
+const e = someFunction()            // this won't work - can't be evaluated at compile time
+```
+
+Constant expressions are often combined with something called `iota`:
+
+```go
+const a = iota      // 0 - iota is related to position in constant group
+
+const (
+    b = iota        // 0 - iota starts at zero on first line
+    c               // 1 - constant expression copied, iota increments
+    d = 3 * iota    // 6 - iota increments again
+)
+
+const (
+    e = iota        // iota resets to zero with each group
+)
+```
+
+### Pointers and Values
+
+```go
+a := "foo"          // create a string variable
+b := &a             // address operator returns the address of a variable
+
+*b = "bar"          // dereference a pointer with asterisk
+c = new(int)        // built-in "new" funtion creates pointer to anonymous variable
+```
+
+* Pointers are primarily used to share memory
+* **Use copies whenever possible**
