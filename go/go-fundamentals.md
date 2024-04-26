@@ -240,5 +240,51 @@ b := &a             // address operator returns the address of a variable
 c = new(int)        // built-in "new" funtion creates pointer to anonymous variable
 ```
 
-* Pointers are primarily used to share memory
-* **Use copies whenever possible**
+- Pointers are primarily used to share memory
+- **Use copies whenever possible**
+
+## Creating and Debugging Programs
+
+### CLI Tools
+
+The following packages are present in the Go [Standard Library](https://pkg.go.dev/std) and are very useful when designing CLI applications:
+
+- [`os`](https://pkg.go.dev/os): Package `os` provides a platform-independent interface to operating system functionality.
+    - `Stdin`: Allows us to read input from the standard input source (by default, the keyboard)
+    - `Stdout`: Allows us to write to the standard output device (typically a monitor)
+    - `Stderr`: Similar to `Stdout`, but it is a special channel specifically for errors
+- [`fmt`](https://pkg.go.dev/fmt): Package `fmt` implements formatted I/O with functions analogous to C's `printf` and `scanf`.
+    - `Scan*`: Allows us to read information in from various sources (including `Stdin`)
+    - `Print*`: Allows us to write information out to various destinations (including `Stdout`)
+- [`bufio`](https://pkg.go.dev/bufio): Package `bufio` implements buffered I/O. It wraps an io.Reader or io.Writer object, creating another object (Reader or Writer) that also implements the interface but provides buffering and some help for textual I/O.
+
+### Example: Buildin a CLI Application
+
+The following is a simple CLI application that takes input from the user via `Stdin` and returns it to `Stdout` in uppercase format.
+
+```go
+package main
+
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
+)
+
+func main() {
+	fmt.Println("What would you like to scream?")
+	in := bufio.NewReader(os.Stdin)
+	s, _ := in.ReadString('\n')
+	s = strings.TrimSpace(s)
+	s = strings.ToUpper(s)
+	fmt.Println(s + "!")
+}
+```
+
+```
+$ go run main.go
+What would you like to scream?
+make it stop
+MAKE IT STOP!
+```
