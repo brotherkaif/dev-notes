@@ -288,3 +288,55 @@ What would you like to scream?
 make it stop
 MAKE IT STOP!
 ```
+
+### Web Services
+
+At a very high level, **clients** make requests to **servers**. The **front controller** of the client is responsible for recieving request from the client, routing the request to the appropriate back controller and then passing the response back to the original client.
+
+```
+                             +-------------------------+
+                             |                   SERVER|
+                             |                         |
++----------+     request     |                         |
+|          +-----------------|--->+----------------+   |
+|  CLIENT  |                 |    |FRONT CONTROLLER|   |
+|          |<----------------|----+-----------+----+   |
++----------+    response     |          ^     |        |
+                             |          |     |        |
+                             |          |     v        |
+                             |   +------+---------+    |
+                             |   |+---------------++   |
+                             |   +|BACK CONTROLLERS|   |
+                             |    +----------------+   |
+                             |                         |
+                             +-------------------------+
+```
+
+### Building a Web Service
+
+- Go provides the **front controller** for us
+- We need to implement the **back controllers**
+- This **back controller** is just a function
+
+```go
+package main
+
+import (
+    "io"
+    "net/http"
+    "os"
+)
+
+func main() {
+    // register the handler function as the back controller to the base endpont
+    http.HandleFunc("/", Handler)
+
+    // start the server on localhost:3000 and use the default front controller
+    http.ListenAndServe(":3000", nil)
+}
+
+func Handler(w http.ResponseWriter, r *http.Request){
+    f, _ := os.Open("./menu.txt")
+    io.Copy(w, f)
+}
+```
