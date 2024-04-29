@@ -107,13 +107,38 @@ Well, you can. But the key term is _managed service_.
 
 #### Benefits
 
-* Highly available, scalable and fault tolerant
-* No size limit
-* Integrates with other AWS services (CodeBuild, CodePipeline, CodeDeploy, Lambda, SNS)
-* Works with existing Git-based tools
+- Highly available, scalable and fault tolerant
+- No size limit
+- Integrates with other AWS services (CodeBuild, CodePipeline, CodeDeploy, Lambda, SNS)
+- Works with existing Git-based tools
 
 #### Exam Tips
 
-* CodeCommit has many benefits but _is not the only repository_ you can use in an AWS deployment pipeline.
-* When in CodeCommit (or CodeBuild and CodeDeploy) in the AWS Management Console, _study the dropdowns_.
-* Other repositories that can be used in AWS deployments include _S3_, _GitHub_, _Bitbucket_ and _GitHub Enterprise_.
+- CodeCommit has many benefits but _is not the only repository_ you can use in an AWS deployment pipeline.
+- When in CodeCommit (or CodeBuild and CodeDeploy) in the AWS Management Console, _study the dropdowns_.
+- Other repositories that can be used in AWS deployments include _S3_, _GitHub_, _Bitbucket_ and _GitHub Enterprise_.
+
+### CodeCommit Repository Actions
+
+#### AWS CLI Command Review
+
+The following AWS CLI commands can be used to interact with CodeCommit repositories
+
+- List Repositories: `aws codecommit list-repositories`
+- Create Repository: `aws codecommit create-repository --repository-name SomeRepoName`
+- Get (View) Repository: `aws codecommit get-repository --repository-name SomeRepoName`
+- Delete Repository: `aws codecommit delete-repository --repository-name SomeRepoName`
+
+#### Exam Tips
+
+- If asked to select the proper command, note that the majority of these commands are very literal.
+
+### CodeCommit Cloning, Commit, Pushes and Pulls
+
+#### Exam Tips
+
+- Commit: Understand that commit is committing changes to your local repository. _To get these changes to the main repository, you need to do a push._
+- Order of Operations:
+    - _Make_ changes to local files.
+    - _Commit_ changes to your local repo.
+    - _Push_ changes to a remote repo.
