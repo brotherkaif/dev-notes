@@ -340,3 +340,35 @@ func Handler(w http.ResponseWriter, r *http.Request){
     io.Copy(w, f)
 }
 ```
+
+### Aggregate Data Types
+
+#### Array Types
+
+Basics:
+
+```go
+var arr [3]int          // array of 3 ints
+fmt.Println(arr)        // [0 0 0]
+arr = [3]int{1, 2, 3}   // array literal
+
+fmt.Println(arr[2])     // 2
+arr[1] = 99             // update value
+fmt.Println(arr)        // [1 99 3]
+fmt.Println(len(arr))   // 3
+```
+
+Assignation:
+
+```go
+arr := [3]string{"foo", "bar", "baz"}
+
+arr2 := arr                             // ARRAYS ARE COPIED BY VALUE!
+fmt.Println(arr)                        // {"foo" "bar" "baz"}
+
+arr[0] = "quux"
+fmt.Println(arr)                        // {"quux" "bar" "baz"}
+fmt.Println(arr2)                       // {"foo" "bar" "baz"}
+
+arr = arr2                              // false - arrays are comparable
+```

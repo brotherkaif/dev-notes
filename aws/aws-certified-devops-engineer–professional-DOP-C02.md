@@ -142,3 +142,36 @@ The following AWS CLI commands can be used to interact with CodeCommit repositor
     - _Make_ changes to local files.
     - _Commit_ changes to your local repo.
     - _Push_ changes to a remote repo.
+
+### CodeCommit Merging and Branching
+
+- **What's the problem?:** Our developers are making changes in the same file to the same lines of code. _This cuases a conflict and needs to be sorted out._
+- **What's the solution?:** _The merge process_ will help to resolve these conflicts and keep our code and our team on the same page.
+- **What are Branches?:** An independant line of development. They allow us to safely make changes to code without disrupting the code on the main branch.
+- **Why Branches?:**
+    - To build a new feature
+    - To fix bugs
+    - Without disrupting the main branch
+
+#### Exam Tips
+
+- Three things to remember when it comes to Branches
+    - Separate work
+    - Work on new features
+    - Create a bug fix branch
+
+### CodeCommit Data Security
+
+- Use CodeCommit when you need:
+    - Data encrypted in transit and at rest
+    - Managed service AWS secures
+    - Highly available and scalable
+
+**Data Security Scenario**
+Q: You want your development team to have full access to CodeCommit, but they should not be able to create or delete repositories.
+A: Attach the AWSCodeCommit PowerUser policy to the account of each developer. Or better yet, create an IAM group to manage the developers in one place and attach that policy to the group.
+
+#### Exam Tips
+
+- CodeCommit Tip: Repositories are automatically _encrypted at rest_.
+- Repositories Tip: Repositories _are also encrypted in transit_ using either HTTPS, SSH or both (configurable at setup).
