@@ -348,14 +348,14 @@ func Handler(w http.ResponseWriter, r *http.Request){
 Basics:
 
 ```go
-var arr [3]int          // array of 3 ints
-fmt.Println(arr)        // [0 0 0]
-arr = [3]int{1, 2, 3}   // array literal
+var arr [3]int              // array of 3 ints
+fmt.Println(arr)            // [0 0 0]
+arr = [3]int{1, 2, 3}       // array literal
 
-fmt.Println(arr[2])     // 2
-arr[1] = 99             // update value
-fmt.Println(arr)        // [1 99 3]
-fmt.Println(len(arr))   // 3
+fmt.Println(arr[2])         // 2
+arr[1] = 99                 // update value
+fmt.Println(arr)            // [1 99 3]
+fmt.Println(len(arr))       // 3
 ```
 
 Assignation:
@@ -363,12 +363,32 @@ Assignation:
 ```go
 arr := [3]string{"foo", "bar", "baz"}
 
-arr2 := arr                             // ARRAYS ARE COPIED BY VALUE!
-fmt.Println(arr)                        // {"foo" "bar" "baz"}
+arr2 := arr                 // ARRAYS ARE COPIED BY VALUE!
+fmt.Println(arr)            // {"foo" "bar" "baz"}
 
 arr[0] = "quux"
-fmt.Println(arr)                        // {"quux" "bar" "baz"}
-fmt.Println(arr2)                       // {"foo" "bar" "baz"}
+fmt.Println(arr)            // {"quux" "bar" "baz"}
+fmt.Println(arr2)           // {"foo" "bar" "baz"}
 
-arr = arr2                              // false - arrays are comparable
+arr = arr2                  // false - arrays are comparable
+```
+
+#### Slice Types
+
+Basics:
+
+```go
+var s []int                 // slices of ints
+fmt.Println(s)              // [] (nil)
+s = []int{1, 2, 3}          // slice literal
+
+fmt.Println(s[1])           // 2
+s[1] = 99                   // update value
+fmt.Println(s)              // [1 99 3]
+
+s = append(s, 5, 10, 15)    // add elements to the slice
+fmt.Println(s)              // [1 99 3 5 10 15]
+
+s = slices.Delete(s, 1, 3)  // remove indices 1, 2 from slice (golang.org/x/exp/slices)
+fmt.Println(s)              // [1 5 10 15]
 ```

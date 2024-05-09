@@ -1,13 +1,5 @@
 # AWS: Certified DevOps Engineer – Professional (DOP-C02)
 
-## Table of Contents
-
-1. [Introduction](#introduction)
-   1. [Exam Overview](#exam-overview)
-   2. [Content Outline](#content-outline)
-2. [SDLC Automation](#sdlc-automation)
-   1. [CI-CD Concepts](#ci-cd-concepts)
-
 ## Introduction
 
 ### Exam Overview
@@ -46,19 +38,19 @@ DevOps. _Shorten dev lifecycle._ Deliver features, fixes and updates frequently.
 **How does DevOps look in action?:**
 
 ```
-MONITOR --------> PLAN --------> CODE 
-                                      
-  ^                                |  
-  |                                |  
-  |                                v  
-                                      
+MONITOR --------> PLAN --------> CODE
+
+  ^                                |
+  |                                |
+  |                                v
+
 OPERATE                          BUILD
-                                      
-  ^                                |  
-  |                                |  
-  |                                v  
-                                      
-DEPLOY <------- RELEASE <------- TEST 
+
+  ^                                |
+  |                                |
+  |                                v
+
+DEPLOY <------- RELEASE <------- TEST
 ```
 
 **What is CI/CD?:**
@@ -77,16 +69,16 @@ DEPLOY <------- RELEASE <------- TEST
 |          |      |          |      |          |      |          |      |          |
 |          |      |          |      |          |      |          |      |          |
 +----------+      +----------+      +----------+      +----------+      +----------+
-                                                                                    
-           CONTINUOUS INTEGRATION                                                   
------------------------------------------------>                                    
-                                                                                    
-                                      CONTINUOUS DELIVERY    +----+      DEPLOY     
+
+           CONTINUOUS INTEGRATION
+----------------------------------------------->
+
+                                      CONTINUOUS DELIVERY    +----+      DEPLOY
                                     -----------------------> |STOP| --------------->
-                                                             +----+                 
-                                                                                    
-                                                                                    
-                                                  CONTINUOUS DEPLOYMENT             
+                                                             +----+
+
+
+                                                  CONTINUOUS DEPLOYMENT
                                     ----------------------------------------------->
 ```
 
@@ -175,3 +167,42 @@ A: Attach the AWSCodeCommit PowerUser policy to the account of each developer. O
 
 - CodeCommit Tip: Repositories are automatically _encrypted at rest_.
 - Repositories Tip: Repositories _are also encrypted in transit_ using either HTTPS, SSH or both (configurable at setup).
+
+### Introduction to CodeBuild
+
+**What is CodeBuild?**
+Fully managed continuous integration service that compiles source code, runs tests and produces software packages that are ready to deploy.
+
+**How do we access CodeBuild?**
+- Management console
+- CLI
+- SDK
+- CodePipeline
+
+```
+    SOURCE               BUILD
++------------+       +-----------+
+|            |       |           | - Fully managed
+|            |       |           | - No need to provision /
+| CodeCommit +------>| CodeBuild |   scale servers
+|            |       |           | - Prepackaged build
+|            |       |           |   environments
++------------+       +-----+-----+
+                           |
+                           |
+                           v
+                        +------+
+                        |      | - Versioning
+                        |  S3  | - Encryption
+                        |      |
+                        +------+
+                        ARTIFACT
+```
+
+#### Exam Tips
+
+- How can CodeBuild be used?:
+    - It can be added to the _build stage_ and also the test stage _in a pipeline_.
+    - You must provide CodeBuild _with a build project_.
+- What is a build project?:
+    - _A build project includes_ information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output.
