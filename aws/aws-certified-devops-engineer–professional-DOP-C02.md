@@ -206,3 +206,70 @@ Fully managed continuous integration service that compiles source code, runs tes
     - You must provide CodeBuild _with a build project_.
 - What is a build project?:
     - _A build project includes_ information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output.
+
+
+### CodeBuild Walkthrough
+
+#### Use Cases
+
+**Ask yourself:**
+
+_Do you need to run CodeBuild after a successful merge to CodeCommit?_
+
+Set up CloudWatch to monitor for merges to CodeCommit and then trigger a build in CodeBuild.
+
+```
+   +-----+
+   | DEV |
+   +--+--+
+      |
+      |
+      v
++------------+
+| CodeCommit |<-----+
++------------+      |
+                    |
+                    |
+            +-------+------+
+            |  CloudWatch  |
+            | /EventBridge |
+            |    Events    |
+            +-------+------+
+                    |
+                    |
+ +-----------+      |
+ | CodeBuild |<-----+
+ +-----------+
+```
+
+**You're given a new requirement:**
+
+_You need to review CodeBuild logs and notify personnel of new logs._
+
+- _Send CodeBuild logs to_ to CloudWatch Logs.
+- _Set up a CloudWatch event_ to monitor for new logs.
+- _Trigger a Lambda function_ to send a notification to Slack.
+
+```
+ +-----------+       +------------+
+ | CodeBuild +------>| CloudWatch |
+ +-----------+       |    Logs    |
+                     +------------+
+
+
++--------------+
+|  CloudWatch  |       +--------+       +-------+
+| /EventBridge +------>| Lambda +------>| Slack |
+|    Events    |       +--------+       +-------+
++--------------+
+```
+
+- **Input**: You must provide CodeBuild _with a build project_.
+- **Output**: If there is any build output (artifacts), the build environment _uploads its output to an S3 bucket_.
+
+#### Exam Tips
+
+- Do you need a _build stage_?:
+    - Only if your code artifacts need to be built/packaged. (e.g. For Java, you build a JAR file; whereas simple HTML does not need to be built.)
+- What is a _buildspec_?:
+    - _A collection of build commands and related settings_, in YAML format, the CodeBuild uses to run a build.
