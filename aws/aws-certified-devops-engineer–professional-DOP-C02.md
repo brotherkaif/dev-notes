@@ -21,7 +21,7 @@
 
 ## SDLC Automation
 
-### CI-CD Concepts
+### CI/CD Concepts
 
 **What problems are we trying to solve?:**
 These types of projects are slow, not iterative and have long release cycles.
@@ -34,6 +34,30 @@ The traditional goals of software development and IT operations do not really al
 
 **How can we solve these problems?:**
 DevOps. _Shorten dev lifecycle._ Deliver features, fixes and updates frequently.
+
+```
+                 +-----------------------+
+                 |                       |
++----------------|------+           QA   |
+|                |      |                |
+|  DEV           |      |                |
+|                |      |                |
+|                |      |                |
+|                |      |                |
+|            +---|-------------------+   |
+|            |   |      |            |   |
+|            |   |DEVOPS|            |   |
+|            |   |      |            |   |
+|            |   +-----------------------+
+|            |          |            |
++------------|----------+            |
+             |                       |
+             |                       |
+             |                       |
+             |      OPERATIONS       |
+             |                       |
+             +-----------------------+
+```
 
 **How does DevOps look in action?:**
 
@@ -54,11 +78,11 @@ DEPLOY <------- RELEASE <------- TEST
 ```
 
 **What is CI/CD?:**
-
 - Continuous Integration (CI)
 - Continuous Delivery (CD)
 
 **Continuous Delivery or Continuous Deployment? Are they the same thing?:**
+No, they are not the same thing.
 
 ```
 +----------+      +----------+      +----------+      +----------+      +----------+
@@ -85,16 +109,25 @@ DEPLOY <------- RELEASE <------- TEST
 **Continuous Deployment:** An update is automated the whole way out to production _without the safeguards of continuous devivery_.
 **Continuous Delivery:** Focuses on safely getting changes out to production. _Key point: there is a stop for approval before going to production_.
 
+**Developer Tools on AWS**
+- **CodeCommit:** For our repository
+- **CodeBuild:** For our build
+- **CodeDeploy:** For our deployment
+- **CodePipeline:** Automate and manage the above services
+
+#### Key Points
+
+- **Continuous Deployment:** An update is automated the whole way out to production _without the safeguards of Continuous Delivery_.
+- **Continuous Delivery:** Focuses on safely getting changes out to production. _Key point: there is a stop for approval before going to production_.
+
 ### CodeCommit Overview
 
 #### Key Points
 
 **What is CodeCommit?:**
-
 It is a _managed service_ that hosts private Git repositories.
 
 **Why not just use Git?:**
-
 Well, you can. But the key term is _managed service_.
 
 #### Benefits
@@ -129,8 +162,8 @@ The following AWS CLI commands can be used to interact with CodeCommit repositor
 
 #### Exam Tips
 
-- Commit: Understand that commit is committing changes to your local repository. _To get these changes to the main repository, you need to do a push._
-- Order of Operations:
+- **Commit:** Understand that commit is committing changes to your local repository. _To get these changes to the main repository, you need to do a push._
+- **Order of Operations:**
     - _Make_ changes to local files.
     - _Commit_ changes to your local repo.
     - _Push_ changes to a remote repo.
@@ -154,10 +187,10 @@ The following AWS CLI commands can be used to interact with CodeCommit repositor
 
 ### CodeCommit Data Security
 
-- Use CodeCommit when you need:
-    - Data encrypted in transit and at rest
-    - Managed service AWS secures
-    - Highly available and scalable
+**Use CodeCommit when you need:**
+- Data encrypted in transit and at rest
+- Managed service AWS secures
+- Highly available and scalable
 
 **Data Security Scenario**
 Q: You want your development team to have full access to CodeCommit, but they should not be able to create or delete repositories.
@@ -165,8 +198,42 @@ A: Attach the AWSCodeCommit PowerUser policy to the account of each developer. O
 
 #### Exam Tips
 
-- CodeCommit Tip: Repositories are automatically _encrypted at rest_.
-- Repositories Tip: Repositories _are also encrypted in transit_ using either HTTPS, SSH or both (configurable at setup).
+- **CodeCommit Tip:** Repositories are automatically _encrypted at rest_.
+- **Repositories Tip:** Repositories _are also encrypted in transit_ using either HTTPS, SSH or both (configurable at setup).
+
+### CodeCommit Advanced
+
+**Migrating a Git Repository to CodeCommit**
+
+```
+                                                               (We have a
+                                                               Github Repo)
+                        Local Dev           CodeCommit             Git
+                            .                   .                   .
+                            |                   |                   |
+          Create CodeCommit |                   |                   |
+          repository        +------------------>|                   |
+                            |                   |                   |
+                            |                   |                   |
+                            |                   |                   |
+  Git client: Clone Project |<------------------+------------------>|
+                            |                   |                   |
+                            |                   |                   |
+                            |                   |                   |
+Git Client: Push project to +------------------>|                   |
+new CodeCommit repository   |                   |                   |
+                            |                   |                   |
+                            .                   .                   .
+```
+
+**Securing Repositories and Branches**
+
+- **Use Case:** By default, any CodeCommit repository user who has sufficient permissions to push code to the repository can contribute to any branch in that repository. This has caused some problems and we need to limit pushes to prod to our Admins.
+- **Solution:** We can create an IAM policy (or a group with a policy attached) that allows only certain users to push to the prod branch.
+
+**Replicating Repositories Between Regions**
+
+TODO: Add content to section
 
 ### Introduction to CodeBuild
 
@@ -201,10 +268,10 @@ Fully managed continuous integration service that compiles source code, runs tes
 
 #### Exam Tips
 
-- How can CodeBuild be used?:
+- **How can CodeBuild be used?:**
     - It can be added to the _build stage_ and also the test stage _in a pipeline_.
     - You must provide CodeBuild _with a build project_.
-- What is a build project?:
+- **What is a build project?:**
     - _A build project includes_ information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output.
 
 
