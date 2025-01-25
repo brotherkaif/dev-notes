@@ -124,6 +124,8 @@ No, they are not the same thing.
 
 #### Key Points
 
+> NOTE: Amazon has announced that CodeCommit is being deprecated [(read announcement)][codecommit-deprecation]. Whilst that renders this entire section redundant, it is still worth understanding the concepts as in a lot of cases, the CodeCommit repo can simply be swapped out with another third party git host.
+
 **What is CodeCommit?:**
 It is a _managed service_ that hosts private Git repositories.
 
@@ -142,6 +144,8 @@ Well, you can. But the key term is _managed service_.
 - CodeCommit has many benefits but _is not the only repository_ you can use in an AWS deployment pipeline.
 - When in CodeCommit (or CodeBuild and CodeDeploy) in the AWS Management Console, _study the dropdowns_.
 - Other repositories that can be used in AWS deployments include _S3_, _GitHub_, _Bitbucket_ and _GitHub Enterprise_.
+
+[codecommit-deprecation]: https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider/
 
 ### CodeCommit Repository Actions
 
@@ -233,7 +237,37 @@ new CodeCommit repository   |                   |                   |
 
 **Replicating Repositories Between Regions**
 
-TODO: Add content to section
+```
+Q: How can we replicate a CodeCommit Repository across regions?
+
+A: Create a trust, a service role that allows us to work in region 2.
+   You could set up a step in your pipeline triggers a Lambda that
+   executes a `git:push` to the repository in the other region.
+
+   +-----------------------------------------------------+                        +----------------+
+   |Region 1                                             |                        |Region 2        |
+   |                                                     |                        |                |
+   |                                                     |                        |                |
+   |                                                     |                        |                |
+   | +------------+    +-----------+    +--------------+ |                        | +------------+ |
+   | |            |    |           |    |              | |                        | |            | |
+   | | CodeCommit |    | CodeBuild |    | CodePipeline | | ---------------------> | | CodeCommit | |
+   | |            |    |           |    |              | |     +------------+     | |            | |
+   | +------------+    +-----------+    +--------------+ |     | CodeBuild  |     | +------------+ |
+   |                                                     |     |Service Role|     |                |
+   |                   +-----------+                     |     |  git:push  |     |                |
+   |                   | buildspec |                     |     +------------+     |                |
+   |                   +-----------+                     |                        |                |
+   |                                                     |                        |                |
+   +-----------------------------------------------------+                        +----------------+
+```
+
+**Key Repository Steps**
+
+1. Migrate a Git repository to CodeCommit
+2. Branch the repository
+3. Limit who can push to the `prod` repository with an IAM policy
+4. Set up a pipeline to replicate our repository across regions
 
 ### Introduction to CodeBuild
 
