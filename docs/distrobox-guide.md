@@ -13,26 +13,31 @@
 ## Creating and Managing Containers
 
 - Create a new container:
+
   ```bash
   distrobox create --name <container_name> --image <image_name>
   ```
 
 - Enter a container:
+
   ```bash
   distrobox enter <container_name>
   ```
 
 - List all containers:
+
   ```bash
   distrobox list
   ```
 
 - Remove a container:
+
   ```bash
   distrobox rm <container_name>
   ```
 
 - Stop a running container:
+
   ```bash
   distrobox stop <container_name>
   ```
@@ -40,11 +45,13 @@
 ## Exporting Applications
 
 - Export an application from container to host:
+
   ```bash
   distrobox-export --app <application_name>
   ```
 
 - Export a binary from container to host:
+
   ```bash
   distrobox-export --bin <binary_path>
   ```
@@ -52,11 +59,13 @@
 ## Container Management
 
 - Upgrade all containers:
+
   ```bash
   distrobox upgrade --all
   ```
 
 - Upgrade a specific container:
+
   ```bash
   distrobox upgrade <container_name>
   ```
@@ -64,21 +73,25 @@
 ## Additional Features
 
 - Execute a command in a container:
+
   ```bash
   distrobox-enter <container_name> -- <command>
   ```
 
 - Generate a desktop entry for an application:
+
   ```bash
   distrobox-export --app <application_name> --extra-flags "--generate-desktop-entry"
   ```
 
 - List exported applications:
+
   ```bash
   distrobox-export --list
   ```
 
 - Remove an exported application:
+
   ```bash
   distrobox-export --app <application_name> --delete
   ```
@@ -107,6 +120,11 @@ Installation instructions on the [Distrobox GitHub page](https://github.com/89lu
    distrobox enter devcontainer
    ```
 
-### Step 3: Install Homebrew in the Container
+### Step 3: Install Components
 
-Installation instructions on the [Homebrew Homepage](https://brew.sh).
+ Inside the devcontainer, install `gcc` and `git`:
+
+ ```bash
+ sudo apt install gcc git
+ ```
+
