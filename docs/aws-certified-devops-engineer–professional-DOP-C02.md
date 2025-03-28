@@ -37,46 +37,26 @@ The traditional goals of software development and IT operations do not really al
 **How can we solve these problems?:**
 DevOps. _Shorten dev lifecycle._ Deliver features, fixes and updates frequently.
 
-```
-                 +-----------------------+
-                 |                       |
-+----------------|------+           QA   |
-|                |      |                |
-|  DEV           |      |                |
-|                |      |                |
-|                |      |                |
-|                |      |                |
-|            +---|-------------------+   |
-|            |   |      |            |   |
-|            |   |DEVOPS|            |   |
-|            |   |      |            |   |
-|            |   +-----------------------+
-|            |          |            |
-+------------|----------+            |
-             |                       |
-             |                       |
-             |                       |
-             |      OPERATIONS       |
-             |                       |
-             +-----------------------+
+```mermaid
+mindmap
+    id((DEVOPS))
+      DEV
+      OPERATIONS
+      QA
 ```
 
 **How does DevOps look in action?:**
 
-```
-MONITOR --------> PLAN --------> CODE
-
-  ^                                |
-  |                                |
-  |                                v
-
-OPERATE                          BUILD
-
-  ^                                |
-  |                                |
-  |                                v
-
-DEPLOY <------- RELEASE <------- TEST
+```mermaid
+flowchart LR
+    Monitor --> Plan
+    Plan --> Code
+    Code --> Build
+    Build --> Test
+    Test --> Release
+    Release --> Deploy
+    Deploy --> Operate
+    Operate --> Monitor
 ```
 
 **What is CI/CD?:**
@@ -87,30 +67,38 @@ DEPLOY <------- RELEASE <------- TEST
 **Continuous Delivery or Continuous Deployment? Are they the same thing?:**
 No, they are not the same thing.
 
-```
-+----------+      +----------+      +----------+      +----------+      +----------+
-|          |      |          |      |          |      |          |      |          |
-|          |      |          |      |          |      |          |      |          |
-|  SOURCE  | ---> |   TEST   | ---> |  BUILD   | ---> |    QA    | ---> | RELEASE  |
-|   CODE   |      |          |      |          |      |          |      |          |
-|          |      |          |      |          |      |          |      |          |
-|          |      |          |      |          |      |          |      |          |
-+----------+      +----------+      +----------+      +----------+      +----------+
-
-           CONTINUOUS INTEGRATION
------------------------------------------------>
-
-                                      CONTINUOUS DELIVERY    +----+      DEPLOY
-                                    -----------------------> |STOP| --------------->
-                                                             +----+
-
-
-                                                  CONTINUOUS DEPLOYMENT
-                                    ----------------------------------------------->
+```mermaid
+timeline
+    SOURCE CODE : Continuous Integration
+    TEST : Continuous Integration
+    BUILD : Continuous Integration
+    QA 
+    RELEASE 
 ```
 
 **Continuous Deployment:** An update is automated the whole way out to production _without the safeguards of continuous devivery_.
+
+```mermaid
+timeline
+    SOURCE CODE
+    TEST
+    BUILD : Continuous Deployment
+    QA : Continuous Deployment
+    RELEASE : Continuous Deployment
+```
+
 **Continuous Delivery:** Focuses on safely getting changes out to production. _Key point: there is a stop for approval before going to production_.
+
+```mermaid
+timeline
+    SOURCE CODE
+    TEST
+    BUILD : Continuous Delivery
+    QA : Continuous Delivery
+       : STOP
+    RELEASE : Deploy
+```
+
 
 **Developer Tools on AWS**
 
@@ -340,28 +328,11 @@ _Do you need to run CodeBuild after a successful merge to CodeCommit?_
 
 Set up CloudWatch to monitor for merges to CodeCommit and then trigger a build in CodeBuild.
 
-```
-   +-----+
-   | DEV |
-   +--+--+
-      |
-      |
-      v
-+------------+
-| CodeCommit |<-----+
-+------------+      |
-                    |
-                    |
-            +-------+------+
-            |  CloudWatch  |
-            | /EventBridge |
-            |    Events    |
-            +-------+------+
-                    |
-                    |
- +-----------+      |
- | CodeBuild |<-----+
- +-----------+
+```mermaid
+flowchart TD
+    id1["DEV"] --> id2["CodeCommit"]
+    id3["CloudWatch/EventBridge Events"] --> id2
+    id3 --> id4["CodeBuild"]
 ```
 
 **You're given a new requirement:**
@@ -372,20 +343,12 @@ _You need to review CodeBuild logs and notify personnel of new logs._
 - _Set up a CloudWatch Event_ to monitor for new logs.
 - _Trigger a Lambda function_ to send a notification to Slack.
 
-**NOTE:** CloudWatch Events has recently been rebranded to EventBridge Events
+**NOTE:** CloudWatch Events has recently been re-branded to EventBridge Events
 
-```
- +-----------+       +------------+
- | CodeBuild +------>| CloudWatch |
- +-----------+       |    Logs    |
-                     +------------+
-
-
-+--------------+
-|  CloudWatch  |       +--------+       +-------+
-| /EventBridge +------>| Lambda +------>| Slack |
-|    Events    |       +--------+       +-------+
-+--------------+
+```mermaid
+flowchart LR
+    id1["Codebuild"] --> id2["CloudWatch Logs"]
+    id3["CloudWatch/EventBridge Events"] --> id4["Lambda"] --> id5["Slack"]
 ```
 
 - **Input**: You must provide CodeBuild _with a build project_.
@@ -535,3 +498,223 @@ AWS CodeBuild provides several environment variables that you can use in your bu
 3. The default event bus triggers the EventBridge rule.
 4. The EventBridge rule triggers the CodeBuild project.
 5. The AWS CodeBuild project runs the code quality check and sends the results back to the pull request as comments. The AWS CodeBuild project approves or rejects the pull request automatically.
+
+### CodeDeploy
+
+#### Introduction to CodeDeploy
+
+**Step 1:** **Provision an IAM user with access to CodeDeploy** (attach a CodeDeploy policy to the user).
+
+**Step 2:** Create an **IAM instance profile** to allow EC2 to access your repositories.
+
+**Step 3:** Create an IAM service role that will grant CodeDeploy access to **other AWS resources**.
+
+##### Exam Tips
+
+- The most common repository for CodeDeploy artifacts: S3
+- EC2/on-premises deployments can also use GitHub or BitBucket
+
+#### CodeDeploy Setup and Configuration
+
+- **What to Deploy:** Revisions (e.g. "Revision 1", "Revision 2 etc.)
+- **How to Deploy and at What Rate:** Deployment Configuration
+- **Where to Deploy:** Deployment Group
+
+##### Going a Step Further: Adding Automation
+
+```mermaid
+flowchart LR
+    id1[CodeDeploy] <--> id2[EventBridge]
+    id2 --> id3[SNS]
+    id2 --> id4[Lambda]
+```
+
+##### What You Can Deploy
+
+- Scripts
+- Code
+- Serverless Lambda Functions
+- Executable Packages
+- Web and Configuration Files
+- Media Files
+
+**Note:** Depending on what you're deploying, you may not need a build stage (CodeBuild) at all.
+
+##### How to Deploy
+
+CodeDeploy can deploy application content that runs on a server and is stored in Amazon S3 buckets, GitHub repositories, or Bitbucket repositories. CodeDeploy can also deploy a serverless Lambda function.
+
+**The deployment method you choose will determine the rate of deployment.**
+
+##### Where to Deploy
+
+1. EC2/On-Premises
+2. AWS Lambda
+3. Amazon ECS
+
+##### Exam Tips
+
+3 things to remember about **Automating Notifications**:
+
+1. **Use EventBridge** (formerly known as CloudWatch Events) to detect the result of a CodeDeploy job.
+2. The event can **trigger SNS or Lambda**
+3. **Targets can be email or other apps** such as Slack
+
+#### CodeDeploy Application, Deployment Groups, and Deployment Configurations
+
+What is an **Application**?:
+In CodeDeploy, and application is simply **a named identifier** used to **reference your deployment settings**.
+
+What is a **Deployment Group**?:
+It is the instance or instances where you want to **target and deploy your code**.
+
+What is a **Deployment Configuration**?:
+It is the **number of instances** (which you can select at any time) for which **you want to deploy your code**.
+
+##### Deployment Steps
+
+```mermaid
+flowchart TD
+  id1["Create Application"] --> id2["Specify Deployment Group"] --> id3["Specify Deployment Configuration"] --> id4["Upload Revision"] --> id5["Deploy"] --> id6["Check Results"] --> id7["Redeploy as needed"]
+```
+
+##### Default Deployment Options
+
+- One at a time
+- All at once
+- Half at a time
+
+##### Exam Tips
+
+**EC2 Deployment Group:** **A set of individual instances** targeted for a deployment.
+
+Understand the options available for **each type of deployment group**: [Working with deployment configurations in CodeDeploy (AWS Docs)](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html)
+
+#### CodeDeploy `appspec.yml`
+
+##### AppSpec Overview
+
+```mermaid
+flowchart LR
+id1["Deployable Content + AppSpec File"] --> id2["CodeDeploy"] --> id3["Deployment Group"]
+```
+
+What is the **AppSpec file?**:
+An application specification file (AppSpec file), which is unique to CodeDeploy, is a ***YAML or JSON formatted file**.
+
+What is the **file structure?**:
+The AppSpec file is **used to manage each deployment as a series** of lifecycle event hooks, which are defined in the file.
+
+##### Example `appspec.yaml` for EC2
+
+```yaml
+version: 0.0
+os: linux
+files:
+  - source: /index.html
+    destination: /var/www/html/
+hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies
+      timeout: 300
+      runas: root
+    - location: scripts/start_server
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server
+      timeout: 300
+      runas: root
+```
+
+Further reading: [CodeDeploy application specification (AppSpec) files (AWS Docs)](https://docs.aws.amazon.com/codedeploy/latest/userguide/application-specification-files.html)
+
+##### Exam Tips
+
+**Need to run custom actions during a deployment?**
+Think **AppSpec file** and **lifecycle hooks** in the AppSpec.
+
+#### CodeDeploy Revision and Deployment
+
+##### What is an Application Revision?
+
+**A revision is simply the bundle (ZIP/TAR file)** containing the current group of files you want to deploy.
+
+```mermaid
+flowchart LR
+  id1["CodeDeploy"] --> id2["S3"]
+```
+
+##### Revision Steps
+
+1. **Select a repository** type in which to store the bundled source code.
+2. **Bundle the source** files and push then to the selected repository.
+
+##### How Can We Deploy a Revision?
+
+```mermaid
+flowchart LR
+  id1["S3"] --> id2["CodeDeploy"] --> id3["Deployment Group"]
+```
+
+##### Exam Tips
+
+**LifeCycle Event Hooks:** Similar to Auto Scaling, **CodeDeploy has lifecycle hooks.**
+
+**Hooks:** The hooks section for an EC2/on-premises deployment contains mappings that link deployment lifecycle event hooks to 1 or more scripts. The hooks allow you to **run custom code at various times** during deployment (`BeforeInstall`, `AfterInstall` etc.).
+
+More info: [AppSpec 'hooks' section (AWS Docs)](https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-structure-hooks.html)
+
+**Some Questions to Consider:**
+
+- Have you created an **application**?
+- Have you created a **deployment group**?
+- Have you created a **deployment configuration**?
+
+#### CodeDeploy with Lambda
+
+##### Deployment Workflow
+
+```mermaid
+flowchart TD
+  id1["Create Application"] --> id2["Specify Deployment Group"] --> id3["Specify Deployment Configuration"] --> id4["Specify an appspec file"] --> id5["Deploy"] --> id6["Check Results"] --> id7["Redeploy as needed"] --> id4
+```
+
+##### Example `appspec.yaml` for Lambda
+
+```yaml
+version: 0.0
+Resources:
+  - myLambdaFunction:
+      Type: AWS::Lambda::Function
+      Properties:
+        Name: "myLambdaFunction"
+        Alias: "myLambdaFunctionAlias"
+        CurrentVersion: "1"
+        TargetVersion: "2"
+Hooks:
+  - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
+  - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
+```
+
+##### More on Hooks in the AppSpec
+
+**What are we doing with a Lambda Function in Hooks?:**
+
+Revisiting that snippet above, note `Validate`. The Lambda functions are performing validation.
+
+```yaml
+Hooks:
+  - BeforeAllowTraffic: "LambdaFunctionToValidateBeforeTrafficShift"
+  - AfterAllowTraffic: "LambdaFunctionToValidateAfterTrafficShift"
+```
+
+```mermaid
+flowchart TD
+  id1["Start"]:::red --> id2["BeforeAllowTraffic"]:::green --> id3["AllowTraffic"]:::red --> id4["AfterAllowTraffic"]:::green --> id5["End"]:::red
+
+  classDef red stroke:#f00
+  classDef green stroke:#0f0
+```
+
+**Note*:* Items highlighted in red cannot be scripted
